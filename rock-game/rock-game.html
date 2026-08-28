@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>RIFF RIOT</title>
+
+  <link rel="stylesheet" href="rock-game.css" />
+</head>
+
+<body>
+
+  <main class="game-shell">
+
+    <!-- HEADER -->
+    <header class="game-header">
+      <div>
+        <p class="eyebrow">ABSOLUTELY NOT PART OF THE PORTFOLIO</p>
+        <h1>RIFF<br>RIOT</h1>
+      </div>
+
+      <a href="../index.html" class="escape-link">
+        ← pretend this never happened
+      </a>
+    </header>
+
+
+    <!-- START SCREEN -->
+    <section id="start-screen" class="screen active">
+
+      <div class="poster-card">
+
+        <span class="stamp">30 SEC</span>
+
+        <h2>YOU FOUND<br>THE SECRET GIG.</h2>
+
+        <p>
+          Hit the notes when they cross the line.<br>
+          That's it. Don't overthink it.
+        </p>
+
+        <div class="keys-preview">
+          <kbd>D</kbd>
+          <kbd>F</kbd>
+          <kbd>J</kbd>
+          <kbd>K</kbd>
+        </div>
+
+        <button id="start-btn" class="main-button">
+          START MAKING NOISE
+        </button>
+
+        <p class="tiny-copy">
+          Headphones not required. Bad decisions encouraged.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- GAME -->
+    <section id="game-screen" class="screen">
+
+      <div class="game-meta">
+
+        <div class="stat">
+          <span>SCORE</span>
+          <strong id="score">0000</strong>
+        </div>
+
+        <div class="stat center">
+          <span id="crowd-message">DON'T EMBARRASS YOURSELF</span>
+        </div>
+
+        <div class="stat right">
+          <span>TIME</span>
+          <strong id="timer">30</strong>
+        </div>
+
+      </div>
+
+
+      <div id="game-area" class="game-area">
+
+        <div class="lane" data-lane="0">
+          <div class="lane-label">D</div>
+        </div>
+
+        <div class="lane" data-lane="1">
+          <div class="lane-label">F</div>
+        </div>
+
+        <div class="lane" data-lane="2">
+          <div class="lane-label">J</div>
+        </div>
+
+        <div class="lane" data-lane="3">
+          <div class="lane-label">K</div>
+        </div>
+
+        <div class="hit-line"></div>
+
+        <div id="judgement" class="judgement"></div>
+
+      </div>
+
+
+      <div class="streak-row">
+        STREAK
+        <strong id="streak">0</strong>
+        <span id="multiplier">×1</span>
+      </div>
+
+    </section>
+
+
+    <!-- END SCREEN -->
+    <section id="end-screen" class="screen">
+
+      <div class="poster-card result-card">
+
+        <p class="eyebrow">THE POLICE HAVE ARRIVED</p>
+
+        <h2 id="rank-title">
+          LOCAL PUB<br>SUPPORT ACT
+        </h2>
+
+        <div class="final-score">
+          <span>FINAL SCORE</span>
+          <strong id="final-score">0000</strong>
+        </div>
+
+        <p id="rank-copy">
+          The bartender clapped. We think.
+        </p>
+
+        <div class="result-actions">
+
+          <button id="restart-btn" class="main-button">
+            PLAY AGAIN
+          </button>
+
+          <a href="../index.html" class="secondary-button">
+            BACK TO RESPONSIBLE DESIGN
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="rock-game.js"></script>
+
+</body>
+</html>

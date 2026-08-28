@@ -1,0 +1,284 @@
+1. What was the product / problem?
+
+Vista Assistant is Vista’s AI-powered customer support experience.
+
+The broader problem was not simply “how do we build a chatbot?” It was how to create a support experience where AI could understand customer needs, use relevant context, take useful actions, recover when something went wrong, and connect customers with human specialists without breaking continuity.
+
+As Vista Assistant expanded beyond the Help Center into more parts of the site, the experience also had to work across very different customer contexts: post-order support, Studio/design work, account and project pages, checkout, product discovery and other moments.
+
+The challenge became increasingly systemic:
+
+- How do customers understand what Vista Assistant can do?
+- When should AI resolve the issue itself?
+- When should it ask for more context?
+- When should a human specialist become part of the experience?
+- How should information move between AI and humans?
+- What happens when the AI lacks a capability or an underlying service fails?
+- How do we evaluate success beyond simple engagement?
+
+
+2. What did I personally own?
+
+I worked as a Senior/Lead UX Designer across Vista Assistant and the wider support-entry-point ecosystem.
+
+My contribution included:
+
+- UX and product strategy
+- Interaction and conversational design
+- Customer journey and service design
+- Research planning and synthesis
+- Experiment design and interpretation
+- Entry-point strategy
+- Human handover experience
+- AI fallback and recovery patterns
+- Context-aware support flows
+- Post-order support flows
+- Discovery around customer choice between AI and humans
+- Transcript analysis and behavioural evidence
+- Future-state / vision prototyping
+- Alignment across Product, Engineering, CARE, AI Operations and Research
+
+A major part of my role was connecting evidence from research, experiments, transcripts and operational constraints into decisions about how the experience should evolve.
+
+I was not only designing individual screens or conversation turns. I was working on how the overall support system behaved.
+
+
+3. What were the 5 most important decisions I influenced?
+
+
+A. HOW SHOULD CUSTOMERS ENTER VISTA ASSISTANT?
+
+We believed:
+The way Vista Assistant was presented at the entry point would strongly influence whether customers engaged with it. We also needed to understand whether lower engagement was caused by the AI experience itself or by how the entry point was framed.
+
+We learned:
+Customers brought strong expectations from support experiences on other websites. Many assumed an automated assistant might make it harder to reach a human.
+
+In usability research, participants were often positively surprised to discover that human support was still available.
+
+We also tested entry-point variations. In one experiment, “Chat with us” generated stronger engagement than “Need help”. When both experiences used “Chat with us”, engagement became roughly balanced, but Vista Assistant generated significantly more started chats once customers entered the experience.
+
+I proposed / changed:
+I helped shift the conversation away from simply asking “Do customers want AI?” toward understanding the mental model created by the support entry point.
+
+I advocated for clearer framing of the experience and for treating the FAB / Help entry point as part of the Vista Assistant experience itself rather than a separate navigation problem.
+
+Result:
+The work gave us evidence that customers were not necessarily rejecting AI itself. Expectations about access to human support and the way the experience was framed were significant factors.
+
+This informed entry-point recommendations and further research into how Vista Assistant should be positioned across the site.
+
+
+B. WHEN SHOULD AI CONTINUE, AND WHEN SHOULD A HUMAN BECOME AVAILABLE?
+
+We believed:
+Increasing AI engagement and resolution was valuable, but customers also needed confidence that they could reach a specialist when AI was not the right tool.
+
+We learned:
+On pages where customers were explicitly offered a choice between Vista Assistant and a human specialist, preference was almost evenly split.
+
+Across the latest analysis, approximately 52% chose Vista Assistant and 48% chose a specialist directly.
+
+However, among customers who initially chose Vista Assistant, a significant proportion eventually handed over to a human.
+
+This showed that the more important question was not simply whether customers chose AI, but what happened after they chose it.
+
+I proposed / changed:
+I helped frame the opportunity around improving successful resolution for customers who were already willing to engage with Vista Assistant.
+
+I also worked on handover improvements, including when the option should appear, preserving conversation context, communicating specialist availability and ensuring customers did not feel trapped inside self-service.
+
+Result:
+The work reframed the “AI versus human” discussion.
+
+Rather than treating handover as failure, we increasingly treated Vista Assistant and human support as parts of the same service, with continuity between them becoming a core design requirement.
+
+
+C. HOW SHOULD CUSTOMER CONTEXT CHANGE THE EXPERIENCE?
+
+We believed:
+Vista Assistant could provide much better support if it understood the customer’s current context rather than repeatedly asking them to explain what they were doing.
+
+We learned:
+Many customer questions are inherently contextual.
+
+Examples include:
+
+“I need these by Friday.”
+“How much is shipping?”
+“Which shipping option is fastest?”
+“Tell me about the bookmarks in my cart.”
+
+Without access to cart, order, product, address or account context, the assistant either had to ask unnecessary questions, provide generic answers or escalate to a specialist.
+
+We also identified that delivery estimates often require information such as the delivery address, creating additional conversational logic when that information is missing.
+
+I proposed / changed:
+I worked on the desired behaviour and MVP logic for context-aware agents, including:
+
+- single versus multiple products
+- identifying which item the customer is referring to
+- address collection when needed
+- fallbacks when context is unavailable
+- delivery and shipping questions
+- product information
+- cart totals
+- contextual follow-up questions
+- escalation when the assistant cannot safely answer
+
+Result:
+The work helped shift Vista Assistant from a generic conversational layer toward a product that could understand the customer’s situation and reduce unnecessary effort.
+
+It also exposed where new technical capabilities and data access were required to deliver the desired experience.
+
+
+D. WHAT SHOULD HAPPEN WHEN AI CANNOT COMPLETE THE TASK?
+
+We believed:
+A strong AI experience could not depend only on successful happy paths. Failure, missing data, unavailable services and unsupported requests had to feel intentional rather than broken.
+
+We learned:
+There were many reasons Vista Assistant might fail to complete a task:
+
+- an order could not be found
+- the customer might be logged into the wrong account
+- an API could be unavailable
+- a capability might not yet exist
+- a specialist might be unavailable
+- the assistant might understand the intent but be unable to perform the required action
+
+Simply replying with an error or generic fallback often created more customer effort.
+
+I proposed / changed:
+I worked on explicit fallback and recovery behaviour across several flows.
+
+This included:
+
+- issue-specific error states
+- recovery options
+- handover where appropriate
+- clearer explanations of what Vista Assistant could and could not do
+- preserving progress and context when escalating
+- designing escape hatches
+- improving specialist handover triggers
+- thinking about failure as part of the end-to-end service rather than an exception
+
+Result:
+Fallback behaviour became more specific and actionable.
+
+The design approach increasingly focused on helping the customer continue toward resolution even when Vista Assistant itself could not complete the task.
+
+
+E. WHAT SHOULD VISTA ASSISTANT BECOME BEYOND THE CURRENT PRODUCT?
+
+We believed:
+The current experience was only one expression of what AI-assisted support could become.
+
+We needed a way to explore future possibilities without prematurely committing Engineering resources or treating speculative ideas as roadmap decisions.
+
+We learned:
+Static screens were often not enough to communicate how future AI experiences would behave.
+
+Questions around proactive assistance, contextual awareness, richer actions, continuity and new interaction models became much easier to discuss once stakeholders could actually experience them.
+
+I proposed / changed:
+I created vision prototypes to make future product directions tangible.
+
+Rather than presenting a single “future solution”, I used prototypes to explore different hypotheses and create something Product, Engineering, Research and leadership could react to.
+
+The prototypes were used to:
+
+- expose assumptions
+- identify feasibility questions
+- communicate interaction behaviour
+- create alignment
+- trigger new discovery questions
+- explore what Vista Assistant could become as its capabilities expanded
+
+Result:
+The prototypes helped move strategic conversations from abstract statements about “AI possibilities” toward concrete product behaviours that could be evaluated, challenged and refined.
+
+
+4. What evidence changed our thinking?
+
+Several pieces of evidence materially changed how we thought about Vista Assistant.
+
+ENTRY-POINT EXPERIMENTS
+
+An early Studio compact FAB reduced engagement significantly.
+
+Later experiments showed that “Chat with us” generated stronger engagement than “Need help”.
+
+When the same label was used for both Vista Assistant and live chat, overall engagement became approximately balanced, while Vista Assistant produced more started conversations once customers entered.
+
+This suggested that part of the problem was framing and expectation rather than AI itself.
+
+
+USABILITY RESEARCH
+
+Participants frequently based their expectations on previous chatbot experiences from other websites.
+
+They often assumed AI would act as a gatekeeper to human support.
+
+When they discovered that a specialist remained available, the reaction was generally positive.
+
+This shifted the design problem toward trust, transparency and continuity.
+
+
+ESCAPE-HATCH DATA
+
+When customers were given an explicit choice, preference was approximately:
+
+52% Vista Assistant
+48% human specialist
+
+This challenged simplistic assumptions that customers overwhelmingly preferred one channel.
+
+The more meaningful question became whether Vista Assistant could successfully resolve the needs of customers who had already chosen to use it.
+
+
+HANDOVER BEHAVIOUR
+
+A large proportion of customers who initially engaged with Vista Assistant eventually moved to a specialist.
+
+This showed that improving post-entry resolution and capability coverage was potentially a larger opportunity than simply trying to increase top-of-funnel AI engagement.
+
+
+TRANSCRIPT / INTENT ANALYSIS
+
+Customer conversations exposed capability gaps and showed that page location was not a reliable proxy for intent.
+
+For example, pages such as My Projects or Order Details could contain pre-order, post-order, design, reorder, account-access and product-quality needs.
+
+This reinforced the need for more granular intent understanding rather than designing experiences solely around page context.
+
+
+5. What actually changed / shipped / improved?
+
+The work contributed to Vista Assistant expanding significantly in both availability and capability.
+
+Examples include:
+
+- Vista Assistant expanded beyond the original Help Center experience into additional site areas
+- Studio expansion
+- 24/7 availability experiment
+- French and German UAT and expansion
+- improved handover experiences
+- handover trigger tracking
+- missing / not-received order flows
+- resend confirmation email flow
+- new post-order remediation journeys
+- context-aware cart-agent requirements
+- escape-hatch discovery
+- entry-point research and experimentation
+- initial-nudge discovery
+- transcript-analysis work
+- VA Playground made available for AI Operations and internal experimentation
+- future-state / design-vision exploration
+- collaboration around additional AI-enabled capabilities
+
+At a broader level, Vista Assistant grew from a relatively contained conversational support experience toward a distributed support system integrated with customer context, operational capabilities and human specialists.
+
+The design work also helped move internal conversations away from “AI versus humans” and toward a more useful question:
+
+How should AI and human support work together to provide the best end-to-end customer experience?
