@@ -323,6 +323,12 @@
         </span>
 
 
+        <div class="support-workload-mobile-summary" aria-hidden="true">
+          <div><strong>1</strong><span>customer-facing step</span></div>
+          <div><strong>7</strong><span>operational tasks around it</span></div>
+        </div>
+
+
         <div class="support-workload-track">
 
           <div>
@@ -810,14 +816,12 @@
 
       <figure class="support-evidence-placeholder">
 
-        <div>
-          HANDOVER SCREEN / SPECIALIST UI
-        </div>
+          <img
+            src="../assets/system/handover-screen.png"
+            alt="handover screen seen by agent"
+          >
 
-        <figcaption>
-          Replace with the actual specialist handover experience,
-          Figma artifact or before/after screenshot.
-        </figcaption>
+
 
       </figure>
 
@@ -1010,20 +1014,37 @@
 
         </div>
 
+        <div class="support-collaboration-mobile">
+          <details>
+            <summary><span>SYSTEM</span><strong>What AI handles</strong></summary>
+            <ul>
+              <li>Find relevant context</li>
+              <li>Retrieve knowledge</li>
+              <li>Generate a draft</li>
+              <li>Follow QA patterns</li>
+            </ul>
+          </details>
+          <details>
+            <summary><span>SPECIALIST</span><strong>What stays human</strong></summary>
+            <ul>
+              <li>Judge whether it applies</li>
+              <li>Adapt to the situation</li>
+              <li>Review and edit</li>
+              <li>Own the customer interaction</li>
+            </ul>
+          </details>
+        </div>
+
       </div>
 
 
 
       <figure class="support-evidence-placeholder">
 
-        <div>
-          REPLY RECOMMENDATION UI
-        </div>
-
-        <figcaption>
-          Add the recommendation surface, retrieved article
-          and generated response when ready.
-        </figcaption>
+          <img
+            src="../assets/system/reply-recommendation-ui.png"
+            alt="handover screen seen by agent"
+          >
 
       </figure>
 
@@ -1328,14 +1349,10 @@
 
       <figure class="support-evidence-placeholder">
 
-        <div>
-          ACW USABILITY / SUMMARY UI
-        </div>
-
-        <figcaption>
-          Add tested concepts, specialist feedback or the final
-          summary-review experience here.
-        </figcaption>
+          <img
+            src="../assets/system/acw.png"
+            alt="automated summary usertesting-screenshot"
+          >
 
       </figure>
 
@@ -1466,9 +1483,34 @@
 
       </div>
 
+      <div class="support-work-distribution-mobile">
+        <div class="support-distribution-mobile-result">
+          <strong>Less operational friction</strong>
+          <span>Move repeatable work to the system; keep judgment with the specialist.</span>
+        </div>
+        <details>
+          <summary><span>SYSTEM</span><strong>Takes on repeatable work</strong></summary>
+          <ul>
+            <li>Prepare context + verify data</li>
+            <li>Retrieve knowledge + draft replies</li>
+            <li>Generate summaries + safe admin work</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>SPECIALIST</span><strong>Owns judgment</strong></summary>
+          <ul>
+            <li>Interpret needs + ambiguity</li>
+            <li>Adapt guidance + policy decisions</li>
+            <li>Handle exceptions + own the relationship</li>
+          </ul>
+        </details>
+      </div>
+
 
 
       <!-- OUTCOMES -->
+
+      <span class="support-outcomes-mobile-label">WHAT THIS CHANGES</span>
 
       <div class="support-outcome-grid">
 
@@ -2033,6 +2075,7 @@
 
 
   <script src="../script.js"></script>
+  <script src="../tabpocalypse-fallback.js"></script>
 
 </body>
 

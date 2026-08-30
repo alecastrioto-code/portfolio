@@ -17,7 +17,7 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home-page">
 
   <main>
     <!-- MAIN NAVIGATION -->
@@ -285,9 +285,6 @@
 </article>
 
 
-<!-- ======================================================
-     EARLIER WORK / ARCHIVE
-     ====================================================== -->
 
 <!-- PROJECT 04 -->
 
@@ -340,44 +337,50 @@
     </section>
 
 
+<!-- =====================================================
+     HOMEPAGE — ARCHIVE PREVIEW
+     ===================================================== -->
 
-<section class="home-archive">
+<!-- =====================================================
+     HOMEPAGE — LIGHTWEIGHT ARCHIVE FOCUS RAIL
+     Replace the current homepage Archive preview with this.
+     Uses the same project-rail component as archive.html.
+     ===================================================== -->
 
-  <div class="home-archive-opening">
+<section
+  class="home-archive-focus"
+  aria-labelledby="home-archive-title"
+>
+
+  <div class="home-archive-focus-opening">
 
     <div>
 
-      <span class="home-archive-label">
-        EARLIER WORK · 2017—2023
+      <span class="home-archive-focus-label">
+        EARLIER WORK · 2019 — 2022
       </span>
 
-      <h2>
-        A few things from <br>
+      <h2 id="home-archive-title">
+        Different problems.
+        <br>
+        Same
         <span class="editorial-accent">
-          previous lives.
+          curiosity.
         </span>
       </h2>
 
     </div>
 
 
-    <div class="home-archive-copy">
+    <div class="home-archive-focus-intro">
 
       <p>
-        Ecommerce, product optimisation, digital campaigns
-        and other work from earlier chapters of my practice.
+        Earlier work across ecommerce, behavioural research,
+        service design and experimental digital experiences.
       </p>
 
       <a href="archive.html">
-
-        <span>
-          Explore the archive
-        </span>
-
-        <span aria-hidden="true">
-          →
-        </span>
-
+        Explore the archive →
       </a>
 
     </div>
@@ -386,101 +389,347 @@
 
 
 
-  <!-- VISUAL PREVIEW -->
-
-  <a
-    class="home-archive-gallery"
-    href="archive.html"
-    aria-label="Explore selected earlier work"
+  <div
+    class="project-rail project-rail--home"
+    data-project-rail
+    aria-label="Earlier work preview"
   >
 
+    <div class="project-rail-stage" role="tablist" aria-label="Archive project previews">
 
-    <!-- 01 -->
 
-    <article class="home-archive-thumb home-archive-thumb-large">
+      <!-- 01 -->
 
-      <div class="home-archive-image">
+      <article
+        class="project-rail-item is-active"
+        data-project-item
+        data-project-index="0"
+      >
 
-        <span>
-          IMAGE
-        </span>
+        <button
+          class="project-rail-select"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-label="Show Checkout optimisation"
+          data-project-select
+        >
+          <span class="project-rail-image">
+            <img
+              src="assets/archive/checkout-optimisation.png"
+              alt=""
+              loading="lazy"
+            >
+          </span>
+
+          <span class="project-rail-sliver-title" aria-hidden="true">
+            Checkout
+          </span>
+        </button>
+
+        <div class="project-rail-info">
+
+          <div class="project-rail-heading">
+            <span class="project-rail-kicker">SUNGLASS HUT · 2022</span>
+            <h3>Checkout optimisation</h3>
+          </div>
+
+          <div class="project-rail-summary">
+            <span>BEHAVIOURAL RESEARCH · ECOMMERCE</span>
+            <a href="archive/checkout-optimisation.html">
+              View project →
+            </a>
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 02 -->
+
+      <article
+        class="project-rail-item"
+        data-project-item
+        data-project-index="1"
+      >
+
+        <button
+          class="project-rail-select"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-label="Show Homepage behavioural analysis"
+          data-project-select
+        >
+          <span class="project-rail-image">
+            <img
+              src="assets/archive/homepage-behavioural-analysis.png"
+              alt=""
+              loading="lazy"
+            >
+          </span>
+
+          <span class="project-rail-sliver-title" aria-hidden="true">
+            Behaviour
+          </span>
+        </button>
+
+        <div class="project-rail-info">
+
+          <div class="project-rail-heading">
+            <span class="project-rail-kicker">SUNGLASS HUT · 2022</span>
+            <h3>Homepage behavioural analysis</h3>
+          </div>
+
+          <div class="project-rail-summary">
+            <span>BEHAVIOURAL ANALYTICS · CRO</span>
+            <a href="archive/homepage-behavioural-analysis.html">
+              View project →
+            </a>
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 03 -->
+
+      <article
+        class="project-rail-item"
+        data-project-item
+        data-project-index="2"
+      >
+
+        <button
+          class="project-rail-select"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-label="Show My Account redesign"
+          data-project-select
+        >
+          <span class="project-rail-image">
+            <img
+              src="assets/archive/my-account-redesign.png"
+              alt=""
+              loading="lazy"
+            >
+          </span>
+
+          <span class="project-rail-sliver-title" aria-hidden="true">
+            Account
+          </span>
+        </button>
+
+        <div class="project-rail-info">
+
+          <div class="project-rail-heading">
+            <span class="project-rail-kicker">SUNGLASS HUT · 2021</span>
+            <h3>My Account redesign</h3>
+          </div>
+
+          <div class="project-rail-summary">
+            <span>PRODUCT DESIGN · FORMS</span>
+            <a href="archive/my-account-redesign.html">
+              View project →
+            </a>
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 04 -->
+
+      <article
+        class="project-rail-item"
+        data-project-item
+        data-project-index="3"
+      >
+
+        <button
+          class="project-rail-select"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-label="Show The New Humanity"
+          data-project-select
+        >
+          <span class="project-rail-image">
+            <img
+              src="assets/archive/lavazza-new-humanity.png"
+              alt=""
+              loading="lazy"
+            >
+          </span>
+
+          <span class="project-rail-sliver-title" aria-hidden="true">
+            Lavazza
+          </span>
+        </button>
+
+        <div class="project-rail-info">
+
+          <div class="project-rail-heading">
+            <span class="project-rail-kicker">LAVAZZA · 2020</span>
+            <h3>The New Humanity</h3>
+          </div>
+
+          <div class="project-rail-summary">
+            <span>IA · INTERACTION · VISUAL DESIGN</span>
+            <a href="archive/lavazza-new-humanity.html">
+              View project →
+            </a>
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 05 -->
+
+      <article
+        class="project-rail-item"
+        data-project-item
+        data-project-index="4"
+      >
+
+        <button
+          class="project-rail-select"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-label="Show Help Center redesign"
+          data-project-select
+        >
+          <span class="project-rail-image">
+            <img
+              src="assets/archive/help-center-redesign.png"
+              alt=""
+              loading="lazy"
+            >
+          </span>
+
+          <span class="project-rail-sliver-title" aria-hidden="true">
+            Help
+          </span>
+        </button>
+
+        <div class="project-rail-info">
+
+          <div class="project-rail-heading">
+            <span class="project-rail-kicker">BRANDSDISTRIBUTION · 2019</span>
+            <h3>Help Center redesign</h3>
+          </div>
+
+          <div class="project-rail-summary">
+            <span>SERVICE DESIGN · SELF-SERVICE</span>
+            <a href="archive/help-center-redesign.html">
+              View project →
+            </a>
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 06 -->
+
+      <article
+        class="project-rail-item"
+        data-project-item
+        data-project-index="5"
+      >
+
+        <button
+          class="project-rail-select"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-label="Show B2B lead generation"
+          data-project-select
+        >
+          <span class="project-rail-image">
+            <img
+              src="assets/archive/b2b-lead-generation.png"
+              alt=""
+              loading="lazy"
+            >
+          </span>
+
+          <span class="project-rail-sliver-title" aria-hidden="true">
+            B2B
+          </span>
+        </button>
+
+        <div class="project-rail-info">
+
+          <div class="project-rail-heading">
+            <span class="project-rail-kicker">BRANDSDISTRIBUTION · 2019</span>
+            <h3>B2B lead generation</h3>
+          </div>
+
+          <div class="project-rail-summary">
+            <span>CRO · RESEARCH · FUNNEL DESIGN</span>
+            <a href="archive/b2b-lead-generation.html">
+              View project →
+            </a>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+
+    <div class="project-rail-controls">
+
+      <span class="project-rail-counter" aria-live="polite">
+        <strong data-project-current>01</strong>
+        <span>/ 06</span>
+      </span>
+
+
+      <div class="project-rail-arrows">
+
+        <button
+          type="button"
+          class="project-rail-arrow"
+          aria-label="Previous archive preview"
+          data-project-prev
+        >
+          ←
+        </button>
+
+        <button
+          type="button"
+          class="project-rail-arrow"
+          aria-label="Next archive preview"
+          data-project-next
+        >
+          →
+        </button>
 
       </div>
 
-      <div class="home-archive-meta">
+    </div>
 
-        <strong>
-          Sunglass Hut
-        </strong>
-
-        <span>
-          Ecommerce · Product
-        </span>
-
-      </div>
-
-    </article>
-
-
-
-    <!-- 02 -->
-
-    <article class="home-archive-thumb home-archive-thumb-tall">
-
-      <div class="home-archive-image">
-
-        <span>
-          IMAGE
-        </span>
-
-      </div>
-
-      <div class="home-archive-meta">
-
-        <strong>
-          Lavazza
-        </strong>
-
-        <span>
-          Digital campaign
-        </span>
-
-      </div>
-
-    </article>
-
-
-
-    <!-- 03 -->
-
-    <article class="home-archive-thumb home-archive-thumb-small">
-
-      <div class="home-archive-image">
-
-        <span>
-          IMAGE
-        </span>
-
-      </div>
-
-      <div class="home-archive-meta">
-
-        <strong>
-          BrandsDistribution
-        </strong>
-
-        <span>
-          B2B · Conversion
-        </span>
-
-      </div>
-
-    </article>
-
-
-  </a>
+  </div>
 
 </section>
+
 
   </main>
 

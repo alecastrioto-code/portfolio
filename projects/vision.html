@@ -330,7 +330,7 @@
           <span>02</span>
 
           <h3>
-            Translation
+            Requirements
           </h3>
 
           <p>
@@ -350,7 +350,7 @@
           <span>03</span>
 
           <h3>
-            Experience
+            Craft
           </h3>
 
           <p>
@@ -853,9 +853,36 @@
 <figure class="vision-requirements-visual">
 
   <img
+    class="vision-requirements-desktop-image"
     src="../assets/vision/requirements-flow.png"
     alt="Flow showing how intent understanding, guidance, system actions, recovery and human handover connect"
   >
+
+  <div
+    class="vision-requirements-mobile-flow"
+    aria-label="Five-step Vista Assistant happy path"
+  >
+    <figure>
+      <span>01</span>
+      <img src="../assets/vision/requirements-flow-mobile-1.png" alt="Step 1: the assistant identifies the customer's order issue">
+    </figure>
+    <figure>
+      <span>02</span>
+      <img src="../assets/vision/requirements-flow-mobile-2.png" alt="Step 2: the customer selects the relevant order">
+    </figure>
+    <figure>
+      <span>03</span>
+      <img src="../assets/vision/requirements-flow-mobile-3.png" alt="Step 3: the assistant confirms the shipping address">
+    </figure>
+    <figure>
+      <span>04</span>
+      <img src="../assets/vision/requirements-flow-mobile-4.png" alt="Step 4: the assistant offers appropriate resolution options">
+    </figure>
+    <figure>
+      <span>05</span>
+      <img src="../assets/vision/requirements-flow-mobile-5.png" alt="Step 5: the assistant connects the customer to human support when needed">
+    </figure>
+  </div>
 
   <figcaption>
     Translating the vision into product behaviour meant defining
@@ -1056,9 +1083,9 @@
     </div>
 
 
-    <div class="a11y-board">
+    <details class="a11y-board" open data-a11y-workstream>
 
-      <div class="a11y-board-header">
+      <summary class="a11y-board-header">
 
         <div>
           <span class="a11y-board-kicker">
@@ -1071,7 +1098,7 @@
           In progress
         </span>
 
-      </div>
+      </summary>
 
 
       <div class="a11y-ticket-grid">
@@ -1186,7 +1213,7 @@
 
       </div>
 
-    </div>
+    </details>
 
   </div>
 
@@ -1451,7 +1478,9 @@
 
   </div>
 
-  <!-- KEEP YOUR EASTER EGG BELOW THIS -->
+  <!-- =====================================================
+       EASTER EGG TRIGGER — PRODUCT TIME MACHINE
+       ===================================================== -->
 
   <div class="future-trigger-wrap">
 
@@ -1459,12 +1488,14 @@
       class="future-trigger"
       type="button"
       data-future-trigger
+      aria-haspopup="dialog"
+      aria-expanded="false"
     >
       <span>2024</span>
       <span class="future-trigger-line"></span>
       <span>NOW</span>
       <span class="future-trigger-line"></span>
-      <span>🍟 ??? </span>
+      <span>🍟 ???</span>
     </button>
 
     <span class="future-trigger-hint">
@@ -1475,38 +1506,8 @@
 
 </section>
 
-<!-- =====================================================
-     EASTER EGG TRIGGER — FUTURE MODE
-===================================================== -->
+</main>
 
-<div class="future-trigger-wrap">
-
-  <button
-    class="future-trigger"
-    type="button"
-    data-future-trigger
-  >
-    <span>2024</span>
-
-    <span class="future-trigger-line"></span>
-
-    <span>NOW</span>
-
-    <span class="future-trigger-line"></span>
-
-    <span>♠ ??? ♠</span>
-  </button>
-
-  <span class="future-trigger-hint">
-    timeline
-  </span>
-
-</div>
-
-    </section>
-
-
-  </main>
 
 <!-- =====================================================
      EASTER EGG — PRODUCT TIME MACHINE
@@ -1528,9 +1529,6 @@
     aria-modal="true"
     aria-labelledby="future-machine-title"
   >
-
-
-    <!-- HEADER -->
 
     <header class="future-machine-header">
 
@@ -1559,187 +1557,146 @@
     </header>
 
 
-
-    <!-- CURRENT STATE -->
-
     <div class="future-machine-content">
 
+      <!-- NORMAL ROADMAP -->
 
-      <div class="future-machine-stage">
+      <div class="future-machine-normal" data-future-normal>
+
+        <div class="future-machine-stage">
+
+          <figure class="future-machine-visual">
+
+            <img
+              src="../assets/vision/vision-hero-01.png"
+              alt=""
+              data-future-image
+            >
+
+          </figure>
 
 
-        <!-- IMAGE -->
+          <div class="future-machine-copy">
 
-        <figure class="future-machine-visual">
+            <span data-future-year>
+              2024
+            </span>
 
-          <img
-            src="../assets/vision/vision-hero-01.png"
-            alt=""
-            data-future-image
-          >
+            <h2 data-future-title>
+              AI answers support questions.
+            </h2>
 
-        </figure>
+            <p data-future-description>
+              The original vision: make customer support
+              easier to access through conversation.
+            </p>
 
-
-
-        <!-- COPY -->
-
-        <div class="future-machine-copy">
-
-          <span data-future-year>
-            2024
-          </span>
-
-          <h2 data-future-title>
-            AI answers support questions.
-          </h2>
-
-          <p data-future-description>
-            The original vision: make customer support
-            easier to access through conversation.
-          </p>
+          </div>
 
         </div>
 
+
+        <div class="future-timeline">
+
+          <div class="future-timeline-labels">
+
+            <span>SUPPORT AI</span>
+            <span>NOW</span>
+            <span>COPILOT</span>
+
+          </div>
+
+
+          <div class="future-slider-track">
+
+            <div
+              class="future-slider-progress"
+              data-future-progress
+            ></div>
+
+            <button
+              class="future-slider-handle"
+              type="button"
+              aria-label="Explore the product timeline"
+              data-future-handle
+            ></button>
+
+          </div>
+
+
+          <div class="future-slider-boundary">
+
+            <span>
+              APPROVED ROADMAP ENDS HERE
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <p class="future-machine-instruction">
+          Tap or drag to explore the product direction.
+        </p>
 
       </div>
 
 
+      <!-- FORBIDDEN STATE — REPLACES THE ROADMAP AFTER THE GLITCH -->
 
-      <!-- TIMELINE -->
+      <div
+        class="future-forbidden"
+        data-future-forbidden
+        hidden
+      >
 
-      <div class="future-timeline">
-
-
-        <div class="future-timeline-labels">
-
-          <span>
-            SUPPORT AI
-          </span>
-
-          <span>
-            NOW
-          </span>
-
-          <span>
-            COPILOT
-          </span>
-
-        </div>
+        <span class="future-forbidden-kicker">
+          ⚠ ROADMAP INTEGRITY COMPROMISED
+        </span>
 
 
-        <div class="future-slider-track">
+        <p class="future-forbidden-message">
+          You have exceeded the amount of future
+          currently approved by Product.
+        </p>
 
-          <div
-            class="future-slider-progress"
-            data-future-progress
-          ></div>
+
+        <div class="future-forbidden-footer">
+
+          <div class="future-forbidden-status">
+
+            <span>
+              STATUS
+            </span>
+
+            <strong>
+              STRATEGICALLY INDEFENSIBLE
+            </strong>
+
+          </div>
 
 
           <button
-            class="future-slider-handle"
+            class="future-forbidden-return"
             type="button"
-            aria-label="Explore the product timeline"
-            data-future-handle
+            data-future-return
           >
+            ← RETURN TO RESPONSIBLE STRATEGY
           </button>
 
         </div>
 
-
-        <div class="future-slider-boundary">
-
-          <span>
-            APPROVED ROADMAP
-          </span>
-
-        </div>
-
-
       </div>
-
-
-      <p class="future-machine-instruction">
-        Drag to explore the product direction.
-      </p>
-
-      <!-- =====================================================
-     FORBIDDEN FUTURE — HIDDEN UNTIL ROADMAP IS EXCEEDED
-     ===================================================== -->
-
-<div
-  class="future-forbidden"
-  data-future-forbidden
-  hidden
->
-
-  <div class="future-forbidden-warning">
-
-    <span>
-      ⚠ ROADMAP BOUNDARY EXCEEDED
-    </span>
-
-  </div>
-
-
-  <div class="future-forbidden-content">
-
-    <span class="future-forbidden-year">
-      2031
-    </span>
-
-
-    <h2>
-      You have entered
-      <span class="editorial-accent">
-        unapproved product strategy.
-      </span>
-    </h2>
-
-
-    <p>
-      Vista Assistant has evolved beyond support,
-      shopping and reasonable roadmap planning.
-    </p>
-
-
-    <div class="future-forbidden-card">
-
-      <span>
-        VISTA ASSISTANT 14
-      </span>
-
-      <strong>
-        AI has become suspiciously involved.
-      </strong>
-
-      <ul>
-        <li>Designs your logo</li>
-        <li>Orders your merch</li>
-        <li>Negotiates with printers</li>
-        <li>Judges your font choices</li>
-      </ul>
-
-    </div>
-
-
-    <button
-      class="future-forbidden-return"
-      type="button"
-      data-future-return
-    >
-      ← return to responsible product strategy
-    </button>
-
-  </div>
-
-</div>
 
     </div>
 
   </section>
 
 </div>
+
+
+
+
 
   <!-- =====================================================
        PROJECT FOOTER

@@ -94,8 +94,8 @@
       WORK
     </a>
         <a href="../archive.html">
-      ARCHIVE
-    </a>
+          ARCHIVE
+        </a>
 
     <a href="../cv.html">
       CV
@@ -441,9 +441,36 @@
         <figure class="ss-artifact-frame">
 
           <img
+            class="ss-mvp-desktop-image"
             src="../assets/self-service/web-mvp.png"
             alt="Early post-order self-service MVP"
           >
+
+          <div
+            class="ss-mvp-mobile-flow"
+            aria-label="Five screens from the early web self-service MVP"
+          >
+            <figure>
+              <span>01</span>
+              <img src="../assets/self-service/web-mvp-mobile-1.png" alt="Step 1: customer sees their recent order and begins managing it">
+            </figure>
+            <figure>
+              <span>02</span>
+              <img src="../assets/self-service/web-mvp-mobile-2.png" alt="Step 2: customer chooses an order-management task">
+            </figure>
+            <figure>
+              <span>03</span>
+              <img src="../assets/self-service/web-mvp-mobile-3.png" alt="Step 3: customer opens the order summary and available self-service actions">
+            </figure>
+            <figure>
+              <span>04</span>
+              <img src="../assets/self-service/web-mvp-mobile-4.png" alt="Step 4: customer investigates a late-order issue and provides feedback">
+            </figure>
+            <figure>
+              <span>05</span>
+              <img src="../assets/self-service/web-mvp-mobile-5.png" alt="Step 5: customer chooses the preferred remediation method">
+            </figure>
+          </div>
 
           <figcaption>
             Early web self-service MVP
@@ -636,12 +663,21 @@
     </div>
 
 
-    <button
-      class="va-reset"
-      type="button"
-    >
-      Restart scenario
-    </button>
+    <div class="va-prototype-actions">
+      <button
+        class="va-start-prototype"
+        type="button"
+      >
+        Try prototype ↓
+      </button>
+
+      <button
+        class="va-reset"
+        type="button"
+      >
+        Restart scenario
+      </button>
+    </div>
 
   </div>
 
@@ -781,10 +817,14 @@
 
 
           <button
-            class="va-order-card"
+            class="va-order-card va-order-card-start"
             type="button"
             data-order="VP_136890"
           >
+
+            <span class="va-order-nudge" aria-hidden="true">
+              START HERE
+            </span>
 
             <div class="va-order-copy">
 
@@ -1245,6 +1285,41 @@
               rather than the experience itself.
             </p>
 
+          </div>
+
+          <div class="ss-late-mobile-map" aria-label="Compact late and missing order decision flow">
+            <div class="ss-late-mobile-grid">
+              <article>
+                <span>01 · CONTEXT</span>
+                <strong>Find the item</strong>
+                <small>Customer → order → product</small>
+              </article>
+
+              <article>
+                <span>02 · EVIDENCE</span>
+                <strong>Is it actually late?</strong>
+                <small>Tracking + expected delivery</small>
+              </article>
+
+              <article class="is-wide">
+                <span>03 · CUSTOMER + POLICY</span>
+                <strong>Choose the response</strong>
+                <div class="ss-late-mobile-choices">
+                  <span>Delay acceptable → inform + track</span>
+                  <span>Customer dissatisfied → consider shipping credit</span>
+                </div>
+              </article>
+
+              <article class="is-wide is-result">
+                <span>04 · RESOLUTION</span>
+                <strong>Inform · credit · refund · replacement · specialist</strong>
+              </article>
+            </div>
+
+            <div class="ss-late-mobile-api">
+              <span>API INTERPRETATION</span>
+              <strong>EDD &lt; today + not delivered → “This item is late.”</strong>
+            </div>
           </div>
 
         </div>

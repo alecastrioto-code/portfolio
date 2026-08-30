@@ -1,0 +1,21 @@
+{
+  "files": [
+    "archive/b2b-lead-generation.html",
+    "archive/checkout-optimisation.html",
+    "archive/help-center-redesign.html",
+    "archive/homepage-behavioural-analysis.html",
+    "archive/lavazza-new-humanity.html",
+    "archive/my-account-redesign.html",
+    "archive.html"
+  ],
+  "validation": {
+    "archive.html": "parsed",
+    "archive/my-account-redesign.html": "parsed",
+    "archive/checkout-optimisation.html": "parsed",
+    "archive/b2b-lead-generation.html": "parsed",
+    "archive/help-center-redesign.html": "parsed",
+    "archive/lavazza-new-humanity.html": "parsed",
+    "archive/homepage-behavioural-analysis.html": "parsed"
+  },
+  "missing_index_targets": []
+}

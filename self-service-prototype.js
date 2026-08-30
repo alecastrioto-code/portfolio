@@ -33,6 +33,12 @@
     );
 
 
+  const startButton =
+    root.querySelector(
+      ".va-start-prototype"
+    );
+
+
   const decisionRule =
     root.querySelector(
       ".va-decision-rule"
@@ -1714,6 +1720,15 @@
         stream.contains(orderCard)
       ) {
 
+        const nudge =
+          root.querySelector(
+            ".va-order-nudge"
+          );
+
+        if (nudge) {
+          nudge.remove();
+        }
+
         chooseOrder(
           orderCard.dataset.order
         );
@@ -1776,6 +1791,41 @@
     "click",
     startFlow
   );
+
+
+  if (startButton) {
+    startButton.addEventListener(
+      "click",
+      () => {
+        const target =
+          stream.querySelector(
+            ".va-order-card-start"
+          );
+
+        if (!target) {
+          return;
+        }
+
+        target.classList.add(
+          "is-start-highlight"
+        );
+
+        target.scrollIntoView({
+          behavior: reducedMotion ? "auto" : "smooth",
+          block: "center"
+        });
+
+        window.setTimeout(
+          () => {
+            target.classList.remove(
+              "is-start-highlight"
+            );
+          },
+          reducedMotion ? 0 : 1800
+        );
+      }
+    );
+  }
 
 
   startFlow();

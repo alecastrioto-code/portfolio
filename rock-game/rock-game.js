@@ -70,6 +70,10 @@ function startAudio() {
     )();
   }
 
+  if (audioContext.state === "suspended") {
+    audioContext.resume().catch(() => {});
+  }
+
 }
 
 
@@ -361,6 +365,34 @@ document.addEventListener(
 );
 
 
+
+
+
+/* ----------------------------------
+   TOUCH / POINTER INPUT
+---------------------------------- */
+
+lanes.forEach((laneEl, laneIndex) => {
+  laneEl.setAttribute("role", "button");
+  laneEl.setAttribute("tabindex", "0");
+  laneEl.setAttribute("aria-label", `Play lane ${laneIndex + 1}`);
+
+  laneEl.addEventListener("pointerdown", event => {
+    if (!gameRunning) return;
+    event.preventDefault();
+    startAudio();
+    flashLane(laneIndex);
+    attemptHit(laneIndex);
+  });
+
+  laneEl.addEventListener("keydown", event => {
+    if (!gameRunning) return;
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    flashLane(laneIndex);
+    attemptHit(laneIndex);
+  });
+});
 
 /* ----------------------------------
    HIT DETECTION

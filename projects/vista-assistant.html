@@ -699,6 +699,50 @@
 
 
 
+    <!-- MOBILE LOGIC SUMMARY — purpose-built for narrow screens -->
+    <div class="mobile-logic-flow" aria-label="Product behaviour decision flow">
+
+      <div class="mobile-logic-request">
+        <span>Customer request</span>
+        <strong>“I need these by Friday.”</strong>
+      </div>
+
+      <article class="mobile-logic-step">
+        <div class="mobile-logic-question">
+          <span>01</span>
+          <strong>Do we know which product the customer means?</strong>
+        </div>
+        <div class="mobile-logic-answers">
+          <div><span>Yes</span><p>Continue with product context</p></div>
+          <div><span>No</span><p>Ask which product they mean</p></div>
+        </div>
+      </article>
+
+      <article class="mobile-logic-step">
+        <div class="mobile-logic-question">
+          <span>02</span>
+          <strong>Do we have what is needed to calculate delivery?</strong>
+        </div>
+        <div class="mobile-logic-answers">
+          <div><span>Yes</span><p>Retrieve available delivery options</p></div>
+          <div><span>No</span><p>Ask only for missing information</p></div>
+        </div>
+      </article>
+
+      <article class="mobile-logic-step">
+        <div class="mobile-logic-question">
+          <span>03</span>
+          <strong>Can the system answer reliably?</strong>
+        </div>
+        <div class="mobile-logic-answers">
+          <div class="is-success"><span>Yes</span><p><strong>Resolve</strong> — respond or act</p></div>
+          <div class="is-recovery"><span>No</span><p><strong>Recover</strong> — recover gracefully or hand over</p></div>
+        </div>
+      </article>
+
+    </div>
+
+
     <!-- KEEPING THE FULL AGENT DIAGRAM -->
 
     <div class="agent-diagram">

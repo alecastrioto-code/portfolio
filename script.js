@@ -877,47 +877,73 @@ if (caseHero) {
 
 /* =========================================================
    EASTER EGG — PRODUCT TIME MACHINE
-   OPEN / CLOSE + INTERACTIVE TIMELINE + FORBIDDEN FUTURE
+   NORMAL ROADMAP + ONE FORBIDDEN OVERSCROLL STATE
    ========================================================= */
 
 const futureMachine =
-  document.querySelector("[data-future-machine]");
+  document.querySelector(
+    "[data-future-machine]"
+  );
 
 const futureTrigger =
-  document.querySelector("[data-future-trigger]");
+  document.querySelector(
+    "[data-future-trigger]"
+  );
 
 const futureClose =
-  document.querySelector("[data-future-close]");
+  document.querySelector(
+    "[data-future-close]"
+  );
 
 const futureBackdrop =
-  document.querySelector(".future-machine-backdrop");
+  document.querySelector(
+    ".future-machine-backdrop"
+  );
 
 const futureTrack =
-  document.querySelector(".future-slider-track");
+  document.querySelector(
+    ".future-slider-track"
+  );
 
 const futureHandle =
-  document.querySelector("[data-future-handle]");
+  document.querySelector(
+    "[data-future-handle]"
+  );
 
 const futureProgress =
-  document.querySelector("[data-future-progress]");
+  document.querySelector(
+    "[data-future-progress]"
+  );
 
 const futureImage =
-  document.querySelector("[data-future-image]");
+  document.querySelector(
+    "[data-future-image]"
+  );
 
 const futureYear =
-  document.querySelector("[data-future-year]");
+  document.querySelector(
+    "[data-future-year]"
+  );
 
 const futureTitle =
-  document.querySelector("[data-future-title]");
+  document.querySelector(
+    "[data-future-title]"
+  );
 
 const futureDescription =
-  document.querySelector("[data-future-description]");
+  document.querySelector(
+    "[data-future-description]"
+  );
 
 const futureForbidden =
-  document.querySelector("[data-future-forbidden]");
+  document.querySelector(
+    "[data-future-forbidden]"
+  );
 
 const futureReturn =
-  document.querySelector("[data-future-return]");
+  document.querySelector(
+    "[data-future-return]"
+  );
 
 
 if (
@@ -930,30 +956,55 @@ if (
   futureImage &&
   futureYear &&
   futureTitle &&
-  futureDescription
+  futureDescription &&
+  futureForbidden &&
+  futureReturn
 ) {
 
-  let futureLastFocusedElement = null;
-  let futureCloseTimer = null;
-  let futureImageTimer = null;
-  let futureRevealTimer = null;
+  let futureLastFocusedElement =
+    null;
 
-  let isDraggingFuture = false;
-  let currentFuturePosition = 0;
-  let currentFutureState = -1;
+  let futureCloseTimer =
+    null;
+
+  let futureImageTimer =
+    null;
+
+  let futureRevealTimer =
+    null;
+
+  let isDraggingFuture =
+    false;
+
+  let currentFuturePosition =
+    0;
+
+  let currentFutureState =
+    -1;
+
+  let futureForbiddenTriggered =
+    false;
+
 
   /*
-    0–100 = normal roadmap
-    100–110 = hidden overscroll zone
-    108+ = forbidden future unlock
+    0–100 = approved roadmap
+    100–110 = deliberately forbidden overscroll
+    108+ = trigger the glitch, then replace the roadmap
   */
 
-  const FUTURE_ROADMAP_END = 100;
-  const FUTURE_FORBIDDEN_LIMIT = 110;
-  const FUTURE_UNLOCK_POINT = 108;
+  const FUTURE_ROADMAP_END =
+    100;
 
-  let futureForbiddenTriggered = false;
-  let futureRevealInProgress = false;
+  const FUTURE_FORBIDDEN_LIMIT =
+    110;
+
+  const FUTURE_UNLOCK_POINT =
+    108;
+
+  const FUTURE_GLITCH_DURATION =
+    prefersReducedMotion
+      ? 0
+      : 560;
 
 
   /* -------------------------------
@@ -1005,14 +1056,22 @@ if (
      HELPERS
   -------------------------------- */
 
-  function clampFuturePosition(value) {
+  function clampFuturePosition(
+    value
+  ) {
 
     const numericValue =
       Number(value);
 
-    if (!Number.isFinite(numericValue)) {
+
+    if (
+      !Number.isFinite(
+        numericValue
+      )
+    ) {
       return 0;
     }
+
 
     return Math.max(
       0,
@@ -1025,7 +1084,9 @@ if (
   }
 
 
-  function getNormalFuturePosition(position) {
+  function getNormalFuturePosition(
+    position
+  ) {
 
     return Math.min(
       position,
@@ -1035,41 +1096,64 @@ if (
   }
 
 
-  function getFutureStateIndex(position) {
+  function getFutureStateIndex(
+    position
+  ) {
 
     const normalPosition =
-      getNormalFuturePosition(position);
+      getNormalFuturePosition(
+        position
+      );
 
-    if (normalPosition < 25) {
+
+    if (
+      normalPosition < 25
+    ) {
       return 0;
     }
 
-    if (normalPosition < 75) {
+
+    if (
+      normalPosition < 75
+    ) {
       return 1;
     }
+
 
     return 2;
 
   }
 
 
-  function getNearestFutureState(position) {
+  function getNearestFutureState(
+    position
+  ) {
 
     const normalPosition =
-      getNormalFuturePosition(position);
+      getNormalFuturePosition(
+        position
+      );
+
 
     return futureStates.reduce(
-      (nearest, state) => {
+      (
+        nearest,
+        state
+      ) => {
 
         const currentDistance =
           Math.abs(
-            normalPosition - state.position
+            normalPosition -
+            state.position
           );
+
 
         const nearestDistance =
           Math.abs(
-            normalPosition - nearest.position
+            normalPosition -
+            nearest.position
           );
+
 
         return currentDistance <
           nearestDistance
@@ -1083,61 +1167,83 @@ if (
   }
 
 
-  function updateFutureContent(stateIndex) {
+  function updateFutureContent(
+    stateIndex
+  ) {
 
     if (
-      stateIndex === currentFutureState
+      stateIndex ===
+      currentFutureState
     ) {
       return;
     }
 
+
     currentFutureState =
       stateIndex;
 
+
     const state =
-      futureStates[stateIndex];
+      futureStates[
+        stateIndex
+      ];
+
 
     futureYear.textContent =
       state.year;
 
+
     futureTitle.textContent =
       state.title;
 
+
     futureDescription.textContent =
       state.description;
+
 
     futureHandle.setAttribute(
       "aria-valuetext",
       `${state.label}: ${state.title}`
     );
 
+
     clearTimeout(
       futureImageTimer
     );
 
-    if (prefersReducedMotion) {
+
+    if (
+      prefersReducedMotion
+    ) {
 
       futureImage.src =
         state.image;
 
+
       futureImage.alt =
         `${state.label} product direction`;
+
 
       futureImage.style.opacity =
         "";
 
+
       futureImage.style.transform =
         "";
+
 
       return;
 
     }
 
+
     futureImage.style.opacity =
       "0";
 
+
     futureImage.style.transform =
       "translateY(6px) scale(0.99)";
+
 
     futureImageTimer =
       window.setTimeout(
@@ -1146,14 +1252,17 @@ if (
           futureImage.src =
             state.image;
 
+
           futureImage.alt =
             `${state.label} product direction`;
+
 
           requestAnimationFrame(
             () => {
 
               futureImage.style.opacity =
                 "1";
+
 
               futureImage.style.transform =
                 "translateY(0) scale(1)";
@@ -1174,24 +1283,22 @@ if (
       futureRevealTimer
     );
 
-    futureRevealInProgress =
-      false;
 
     futureMachine.classList.remove(
-      "is-glitching"
+      "is-glitching",
+      "is-forbidden"
     );
+
 
     futureHandle.classList.remove(
       "is-beyond-roadmap"
     );
 
-    if (!futureForbidden) {
-      return;
-    }
 
     futureForbidden.classList.remove(
       "is-revealed"
     );
+
 
     futureForbidden.hidden =
       true;
@@ -1202,26 +1309,30 @@ if (
   function revealForbiddenFuture() {
 
     if (
-      !futureForbidden ||
-      futureForbiddenTriggered ||
-      futureRevealInProgress
+      futureForbiddenTriggered
     ) {
       return;
     }
 
+
     futureForbiddenTriggered =
       true;
 
-    futureRevealInProgress =
-      true;
+
+    /*
+      First: corrupt the current interface.
+      Nothing new is shown during the glitch.
+    */
 
     futureMachine.classList.add(
       "is-glitching"
     );
 
+
     clearTimeout(
       futureRevealTimer
     );
+
 
     futureRevealTimer =
       window.setTimeout(
@@ -1231,45 +1342,47 @@ if (
             "is-glitching"
           );
 
-          futureRevealInProgress =
-            false;
 
-          if (futureMachine.hidden) {
+          if (
+            futureMachine.hidden
+          ) {
             return;
           }
+
+
+          /*
+            Then: remove the roadmap completely
+            and let the warning take over the modal.
+          */
+
+          futureMachine.classList.add(
+            "is-forbidden"
+          );
+
 
           futureForbidden.hidden =
             false;
 
-          futureForbidden.classList.add(
-            "is-revealed"
+
+          requestAnimationFrame(
+            () => {
+
+              futureForbidden.classList.add(
+                "is-revealed"
+              );
+
+              futureReturn.focus();
+
+            }
           );
 
-          /* Easter egg officially discovered */
 
           window.PortfolioEggs?.unlock(
             "future-mode"
           );
 
-          window.setTimeout(
-            () => {
-
-              futureForbidden.scrollIntoView({
-                behavior:
-                  prefersReducedMotion
-                    ? "auto"
-                    : "smooth",
-                block: "center"
-              });
-
-            },
-            100
-          );
-
         },
-        prefersReducedMotion
-          ? 0
-          : 650
+        FUTURE_GLITCH_DURATION
       );
 
   }
@@ -1287,31 +1400,31 @@ if (
         position
       );
 
+
     const normalPosition =
       getNormalFuturePosition(
         currentFuturePosition
       );
 
+
     futureHandle.style.left =
       `${currentFuturePosition}%`;
 
-    /*
-      The normal progress line stops at
-      the approved roadmap boundary.
-      Only the handle travels beyond it.
-    */
 
     futureProgress.style.width =
       `${normalPosition}%`;
+
 
     const beyondRoadmap =
       currentFuturePosition >
       FUTURE_ROADMAP_END;
 
+
     futureHandle.classList.toggle(
       "is-beyond-roadmap",
       beyondRoadmap
     );
+
 
     futureHandle.setAttribute(
       "aria-valuenow",
@@ -1322,7 +1435,10 @@ if (
       )
     );
 
-    if (updateContent) {
+
+    if (
+      updateContent
+    ) {
 
       updateFutureContent(
         getFutureStateIndex(
@@ -1331,6 +1447,7 @@ if (
       );
 
     }
+
 
     if (
       currentFuturePosition >=
@@ -1346,12 +1463,6 @@ if (
 
   function snapFutureToNearestState() {
 
-    /*
-      If the user made it far enough to
-      unlock the forbidden state, leave
-      the handle beyond the roadmap.
-    */
-
     if (
       currentFuturePosition >=
       FUTURE_UNLOCK_POINT
@@ -1359,10 +1470,12 @@ if (
       return;
     }
 
+
     const nearest =
       getNearestFutureState(
         currentFuturePosition
       );
+
 
     setFuturePosition(
       nearest.position
@@ -1371,17 +1484,27 @@ if (
   }
 
 
-  function getFuturePointerPosition(clientX) {
+  function getFuturePointerPosition(
+    clientX
+  ) {
 
     const rect =
-      futureTrack.getBoundingClientRect();
+      futureTrack
+        .getBoundingClientRect();
 
-    if (!rect.width) {
+
+    if (
+      !rect.width
+    ) {
       return 0;
     }
 
+
     return (
-      (clientX - rect.left)
+      (
+        clientX -
+        rect.left
+      )
       /
       rect.width
     ) * 100;
@@ -1398,10 +1521,12 @@ if (
     "slider"
   );
 
+
   futureHandle.setAttribute(
     "aria-valuemin",
     "0"
   );
+
 
   futureHandle.setAttribute(
     "aria-valuemax",
@@ -1409,6 +1534,7 @@ if (
       FUTURE_FORBIDDEN_LIMIT
     )
   );
+
 
   futureHandle.setAttribute(
     "aria-orientation",
@@ -1425,36 +1551,41 @@ if (
     futureLastFocusedElement =
       document.activeElement;
 
+
     clearTimeout(
       futureCloseTimer
     );
 
+
+    futureForbiddenTriggered =
+      false;
+
+
+    hideForbiddenFuture();
+
+
+    currentFutureState =
+      -1;
+
+
     futureMachine.hidden =
       false;
+
 
     futureMachine.setAttribute(
       "aria-hidden",
       "false"
     );
 
+
     document.body.style.overflow =
       "hidden";
 
-    /*
-      Every new trip begins at 2024.
-      The tracker remains unlocked if
-      the egg was found previously.
-    */
 
-    futureForbiddenTriggered =
-      false;
+    setFuturePosition(
+      0
+    );
 
-    hideForbiddenFuture();
-
-    currentFutureState =
-      -1;
-
-    setFuturePosition(0);
 
     requestAnimationFrame(
       () => {
@@ -1462,6 +1593,7 @@ if (
         futureMachine.classList.add(
           "is-open"
         );
+
 
         futureClose.focus();
 
@@ -1480,32 +1612,33 @@ if (
     isDraggingFuture =
       false;
 
+
     clearTimeout(
       futureRevealTimer
     );
 
-    futureRevealInProgress =
-      false;
 
     futureMachine.classList.remove(
-      "is-glitching"
-    );
-
-    futureMachine.classList.remove(
+      "is-glitching",
+      "is-forbidden",
       "is-open"
     );
+
 
     futureMachine.setAttribute(
       "aria-hidden",
       "true"
     );
 
+
     document.body.style.overflow =
       "";
+
 
     clearTimeout(
       futureCloseTimer
     );
+
 
     futureCloseTimer =
       window.setTimeout(
@@ -1514,11 +1647,15 @@ if (
           futureMachine.hidden =
             true;
 
+
+          hideForbiddenFuture();
+
         },
         prefersReducedMotion
           ? 0
           : 400
       );
+
 
     if (
       futureLastFocusedElement instanceof
@@ -1533,6 +1670,29 @@ if (
 
 
   /* -------------------------------
+     RETURN TO RESPONSIBLE STRATEGY
+  -------------------------------- */
+
+  function returnToRoadmap() {
+
+    futureForbiddenTriggered =
+      false;
+
+
+    hideForbiddenFuture();
+
+
+    setFuturePosition(
+      FUTURE_ROADMAP_END
+    );
+
+
+    futureHandle.focus();
+
+  }
+
+
+  /* -------------------------------
      OPEN / CLOSE EVENTS
   -------------------------------- */
 
@@ -1541,10 +1701,12 @@ if (
     openFutureMachine
   );
 
+
   futureClose.addEventListener(
     "click",
     closeFutureMachine
   );
+
 
   futureBackdrop?.addEventListener(
     "click",
@@ -1552,26 +1714,9 @@ if (
   );
 
 
-  /* -------------------------------
-     RETURN TO RESPONSIBLE STRATEGY
-  -------------------------------- */
-
-  futureReturn?.addEventListener(
+  futureReturn.addEventListener(
     "click",
-    () => {
-
-      hideForbiddenFuture();
-
-      futureForbiddenTriggered =
-        false;
-
-      setFuturePosition(
-        FUTURE_ROADMAP_END
-      );
-
-      futureHandle.focus();
-
-    }
+    returnToRoadmap
   );
 
 
@@ -1590,14 +1735,17 @@ if (
         return;
       }
 
+
       const position =
         getFuturePointerPosition(
           event.clientX
         );
 
+
       setFuturePosition(
         position
       );
+
 
       snapFutureToNearestState();
 
@@ -1615,12 +1763,15 @@ if (
 
       event.preventDefault();
 
+
       isDraggingFuture =
         true;
 
-      futureHandle.setPointerCapture?.(
-        event.pointerId
-      );
+
+      futureHandle
+        .setPointerCapture?.(
+          event.pointerId
+        );
 
     }
   );
@@ -1630,9 +1781,15 @@ if (
     "pointermove",
     (event) => {
 
-      if (!isDraggingFuture) {
+      if (
+        !isDraggingFuture ||
+        futureMachine.classList.contains(
+          "is-forbidden"
+        )
+      ) {
         return;
       }
+
 
       setFuturePosition(
         getFuturePointerPosition(
@@ -1648,12 +1805,16 @@ if (
     "pointerup",
     () => {
 
-      if (!isDraggingFuture) {
+      if (
+        !isDraggingFuture
+      ) {
         return;
       }
 
+
       isDraggingFuture =
         false;
+
 
       snapFutureToNearestState();
 
@@ -1665,12 +1826,16 @@ if (
     "pointercancel",
     () => {
 
-      if (!isDraggingFuture) {
+      if (
+        !isDraggingFuture
+      ) {
         return;
       }
 
+
       isDraggingFuture =
         false;
+
 
       snapFutureToNearestState();
 
@@ -1691,6 +1856,7 @@ if (
           currentFuturePosition
         );
 
+
       if (
         event.key ===
         "ArrowRight"
@@ -1698,11 +1864,6 @@ if (
 
         event.preventDefault();
 
-        /*
-          Once the user reaches COPILOT,
-          Right Arrow quietly enters the
-          forbidden overscroll zone too.
-        */
 
         if (
           currentFuturePosition >=
@@ -1710,18 +1871,22 @@ if (
         ) {
 
           setFuturePosition(
-            currentFuturePosition + 5
+            currentFuturePosition +
+            5
           );
+
 
           return;
 
         }
+
 
         const nextIndex =
           Math.min(
             futureStates.length - 1,
             stateIndex + 1
           );
+
 
         setFuturePosition(
           futureStates[
@@ -1739,29 +1904,24 @@ if (
 
         event.preventDefault();
 
+
         if (
           currentFuturePosition >
           FUTURE_ROADMAP_END
         ) {
 
-          futureForbiddenTriggered =
-            false;
-
-          hideForbiddenFuture();
-
-          setFuturePosition(
-            FUTURE_ROADMAP_END
-          );
-
+          returnToRoadmap();
           return;
 
         }
+
 
         const previousIndex =
           Math.max(
             0,
             stateIndex - 1
           );
+
 
         setFuturePosition(
           futureStates[
@@ -1772,34 +1932,36 @@ if (
       }
 
 
-      if (event.key === "Home") {
+      if (
+        event.key ===
+        "Home"
+      ) {
 
         event.preventDefault();
+
 
         futureForbiddenTriggered =
           false;
 
+
         hideForbiddenFuture();
 
+
         setFuturePosition(
-          futureStates[0].position
+          futureStates[0]
+            .position
         );
 
       }
 
 
-      if (event.key === "End") {
+      if (
+        event.key ===
+        "End"
+      ) {
 
         event.preventDefault();
-
-        futureForbiddenTriggered =
-          false;
-
-        hideForbiddenFuture();
-
-        setFuturePosition(
-          FUTURE_ROADMAP_END
-        );
+        returnToRoadmap();
 
       }
 
@@ -1830,9 +1992,13 @@ if (
 
   /* Initial state */
 
-  setFuturePosition(0);
+  setFuturePosition(
+    0
+  );
 
 }
+
+
 
 
 /* =========================================================
@@ -2187,14 +2353,16 @@ function createPortfolioQuestShell() {
           "
         >
 
-          <p>
+          <p data-quest-intro>
             Oh good. You clicked it.
             There are
             <strong>6 hidden things</strong>
-            somewhere in this portfolio.
+            somewhere in this portfolio. <br>
+            <strong> How to hunt: follow the fries 🍟 </strong>
           </p>
 
         </div>
+
 
 
         <div class="quest-reward">
@@ -2359,6 +2527,11 @@ const questFill =
     "[data-quest-progress-fill]"
   );
 
+const questIntro =
+  document.querySelector(
+    "[data-quest-intro]"
+  );
+
 const questListItems =
   document.querySelectorAll(
     "[data-quest-item]"
@@ -2384,10 +2557,19 @@ if (
   const QUEST_STARTED_KEY =
     "ale-portfolio-side-quest-started";
 
+  const QUEST_PANEL_SEEN_KEY =
+    "ale-portfolio-side-quest-panel-seen";
+
+  const QUEST_AUTO_STARTED_KEY =
+    "ale-portfolio-side-quest-auto-started";
+
   let questLastFocusedElement =
     null;
 
   let questCloseTimer =
+    null;
+
+  let questDiscoveryTimer =
     null;
 
 
@@ -2395,13 +2577,15 @@ if (
      QUEST STATE
   -------------------------------- */
 
-  function isQuestStarted() {
+  function readQuestFlag(
+    key
+  ) {
 
     try {
 
       return (
         localStorage.getItem(
-          QUEST_STARTED_KEY
+          key
         ) === "true"
       );
 
@@ -2419,13 +2603,16 @@ if (
   }
 
 
-  function saveQuestStarted() {
+  function saveQuestFlag(
+    key,
+    value = true
+  ) {
 
     try {
 
       localStorage.setItem(
-        QUEST_STARTED_KEY,
-        "true"
+        key,
+        String(value)
       );
 
     } catch (error) {
@@ -2440,6 +2627,184 @@ if (
   }
 
 
+  function isQuestStarted() {
+
+    return readQuestFlag(
+      QUEST_STARTED_KEY
+    );
+
+  }
+
+
+  function saveQuestStarted() {
+
+    saveQuestFlag(
+      QUEST_STARTED_KEY
+    );
+
+  }
+
+
+  function hasSeenQuestPanel() {
+
+    return readQuestFlag(
+      QUEST_PANEL_SEEN_KEY
+    );
+
+  }
+
+
+  function markQuestPanelSeen() {
+
+    saveQuestFlag(
+      QUEST_PANEL_SEEN_KEY
+    );
+
+  }
+
+
+  function wasQuestAutoStarted() {
+
+    return readQuestFlag(
+      QUEST_AUTO_STARTED_KEY
+    );
+
+  }
+
+
+  function markQuestAutoStarted() {
+
+    saveQuestFlag(
+      QUEST_AUTO_STARTED_KEY
+    );
+
+  }
+
+
+  function clearQuestAutoStarted() {
+
+    saveQuestFlag(
+      QUEST_AUTO_STARTED_KEY,
+      false
+    );
+
+  }
+
+
+  function updateQuestIntro(
+    foundBeforeInstructions = false
+  ) {
+
+    if (!questIntro) {
+      return;
+    }
+
+
+    if (
+      foundBeforeInstructions
+    ) {
+
+      questIntro.innerHTML =
+        `
+          You found one before reading
+          the instructions. Of course you did.
+          <strong>It still counts.</strong>
+        `;
+
+      return;
+
+    }
+
+
+    questIntro.innerHTML =
+      `
+        Oh good. You clicked it.
+        There are
+        <strong>6 hidden things</strong>
+        somewhere in this portfolio. <br>
+        <strong> How to hunt: follow the fries 🍟 </strong>
+
+      `;
+
+  }
+
+
+  function pulseQuestDiscovery() {
+
+    clearTimeout(
+      questDiscoveryTimer
+    );
+
+
+    questTrigger.classList.remove(
+      "is-discovery-pulse"
+    );
+
+
+    /* Restart the animation reliably. */
+
+    void questTrigger.offsetWidth;
+
+
+    questTrigger.classList.add(
+      "is-discovery-pulse"
+    );
+
+
+    questDiscoveryTimer =
+      window.setTimeout(
+        () => {
+
+          questTrigger.classList.remove(
+            "is-discovery-pulse"
+          );
+
+        },
+        prefersReducedMotion
+          ? 0
+          : 1400
+      );
+
+  }
+
+
+  function ensureQuestStartedFromProgress(
+    progress
+  ) {
+
+    if (
+      !progress ||
+      progress.foundCount <= 0 ||
+      isQuestStarted()
+    ) {
+      return false;
+    }
+
+
+    /*
+      Finding an Easter egg is enough to
+      start the side quest. The user never
+      loses a discovery just because they
+      did things in the "wrong" order.
+    */
+
+    saveQuestStarted();
+
+
+    if (
+      !hasSeenQuestPanel()
+    ) {
+
+      markQuestAutoStarted();
+
+    }
+
+
+    return true;
+
+  }
+
+
   /* -------------------------------
      OPEN / CLOSE
   -------------------------------- */
@@ -2448,6 +2813,33 @@ if (
 
     questLastFocusedElement =
       document.activeElement;
+
+
+    const isFirstPanelOpen =
+      !hasSeenQuestPanel();
+
+
+    const foundBeforeInstructions =
+      isFirstPanelOpen &&
+      wasQuestAutoStarted();
+
+
+    updateQuestIntro(
+      foundBeforeInstructions
+    );
+
+
+    markQuestPanelSeen();
+
+
+    if (
+      foundBeforeInstructions
+    ) {
+
+      clearQuestAutoStarted();
+
+    }
+
 
     clearTimeout(
       questCloseTimer
@@ -2537,6 +2929,12 @@ if (
 
     const total =
       progress.total || 6;
+
+
+    ensureQuestStartedFromProgress(
+      progress
+    );
+
 
     const started =
       isQuestStarted();
@@ -2777,7 +3175,42 @@ if (
 
   window.addEventListener(
     "portfolio-easter-egg-unlocked",
-    updateQuestUI
+    () => {
+
+      const progress =
+        window.PortfolioEggs
+          ?.getProgress();
+
+
+      const autoStarted =
+        ensureQuestStartedFromProgress(
+          progress
+        );
+
+
+      updateQuestUI();
+
+
+      /*
+        Whether or not the panel has ever
+        been opened, acknowledge the find
+        immediately on the floating control.
+      */
+
+      pulseQuestDiscovery();
+
+
+      if (
+        autoStarted &&
+        questFabLabel
+      ) {
+
+        questFabLabel.textContent =
+          `${progress?.foundCount || 1} / ${progress?.total || 6}`;
+
+      }
+
+    }
   );
 
 
@@ -2794,7 +3227,11 @@ if (
         event.key ===
           EASTER_EGG_STORAGE_KEY ||
         event.key ===
-          QUEST_STARTED_KEY
+          QUEST_STARTED_KEY ||
+        event.key ===
+          QUEST_PANEL_SEEN_KEY ||
+        event.key ===
+          QUEST_AUTO_STARTED_KEY
       ) {
 
         updateQuestUI();
@@ -4281,6 +4718,8 @@ openButton?.addEventListener(
     }
   );
 
+  modal.dataset.tabpocalypseBound = "true";
+
 })();
 
 
@@ -5603,4 +6042,595 @@ openButton?.addEventListener(
     }
   );
 
+})();
+
+
+
+
+/* =========================================================
+   PROJECT FOCUS RAIL
+   Shared interaction for Archive + Homepage
+
+   Behaviour:
+   - click an inactive tile → expand it
+   - click the already-expanded tile → open its project page
+   - previous / next arrows
+   - keyboard navigation
+   - touch swipe
+   - independent rails if more than one appears on a page
+   ========================================================= */
+
+(() => {
+
+  const rails =
+    document.querySelectorAll(
+      "[data-project-rail]"
+    );
+
+
+  if (!rails.length) {
+    return;
+  }
+
+
+  rails.forEach(
+    (rail) => {
+
+      const items =
+        Array.from(
+          rail.querySelectorAll(
+            "[data-project-item]"
+          )
+        );
+
+
+      const selects =
+        items.map(
+          (item) =>
+            item.querySelector(
+              "[data-project-select]"
+            )
+        );
+
+
+      const previousButton =
+        rail.querySelector(
+          "[data-project-prev]"
+        );
+
+
+      const nextButton =
+        rail.querySelector(
+          "[data-project-next]"
+        );
+
+
+      const currentCounter =
+        rail.querySelector(
+          "[data-project-current]"
+        );
+
+
+      if (
+        !items.length ||
+        selects.some(
+          (select) => !select
+        )
+      ) {
+        return;
+      }
+
+
+
+      /* ---------------------------------------------------------
+         STATE
+         --------------------------------------------------------- */
+
+      let activeIndex =
+        Math.max(
+          0,
+          items.findIndex(
+            (item) =>
+              item.classList.contains(
+                "is-active"
+              )
+          )
+        );
+
+
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchTracking = false;
+
+      const SWIPE_THRESHOLD = 44;
+
+
+
+      /* ---------------------------------------------------------
+         HELPERS
+         --------------------------------------------------------- */
+
+      const wrapIndex =
+        (index) => {
+
+          if (index < 0) {
+            return items.length - 1;
+          }
+
+
+          if (
+            index >=
+            items.length
+          ) {
+            return 0;
+          }
+
+
+          return index;
+
+        };
+
+
+      const formatIndex =
+        (index) =>
+          String(
+            index + 1
+          ).padStart(
+            2,
+            "0"
+          );
+
+
+      const getProjectLink =
+        (item) => {
+
+          const link =
+            item.querySelector(
+              ".project-rail-info a[href]"
+            );
+
+
+          return link?.href || null;
+
+        };
+
+
+      const updateRail =
+        (
+          nextIndex,
+          {
+            focusTab = false
+          } = {}
+        ) => {
+
+          const resolvedIndex =
+            wrapIndex(
+              nextIndex
+            );
+
+
+          activeIndex =
+            resolvedIndex;
+
+
+          items.forEach(
+            (
+              item,
+              index
+            ) => {
+
+              const isActive =
+                index ===
+                activeIndex;
+
+
+              const select =
+                selects[index];
+
+
+              item.classList.toggle(
+                "is-active",
+                isActive
+              );
+
+
+              select.setAttribute(
+                "aria-selected",
+                String(
+                  isActive
+                )
+              );
+
+
+              select.tabIndex =
+                isActive
+                  ? 0
+                  : -1;
+
+            }
+          );
+
+
+          if (
+            currentCounter
+          ) {
+
+            currentCounter.textContent =
+              formatIndex(
+                activeIndex
+              );
+
+          }
+
+
+          if (
+            focusTab
+          ) {
+
+            selects[
+              activeIndex
+            ].focus({
+              preventScroll: true
+            });
+
+          }
+
+        };
+
+
+      const openActiveProject =
+        () => {
+
+          const href =
+            getProjectLink(
+              items[
+                activeIndex
+              ]
+            );
+
+
+          if (!href) {
+            return;
+          }
+
+
+          window.location.href =
+            href;
+
+        };
+
+
+      const showPrevious =
+        () => {
+
+          updateRail(
+            activeIndex - 1
+          );
+
+        };
+
+
+      const showNext =
+        () => {
+
+          updateRail(
+            activeIndex + 1
+          );
+
+        };
+
+
+
+      /* ---------------------------------------------------------
+         INITIALISE
+         --------------------------------------------------------- */
+
+      updateRail(
+        activeIndex
+      );
+
+
+
+      /* ---------------------------------------------------------
+         PROJECT SELECTION
+         Inactive tile = expand
+         Active tile   = open project
+         --------------------------------------------------------- */
+
+      selects.forEach(
+        (
+          select,
+          index
+        ) => {
+
+          select.addEventListener(
+            "click",
+            () => {
+
+              if (
+                index ===
+                activeIndex
+              ) {
+
+                openActiveProject();
+                return;
+
+              }
+
+
+              updateRail(
+                index
+              );
+
+            }
+          );
+
+
+
+          /* -----------------------------------------------------
+             KEYBOARD
+             ----------------------------------------------------- */
+
+          select.addEventListener(
+            "keydown",
+            (event) => {
+
+              switch (
+                event.key
+              ) {
+
+                case "ArrowLeft":
+
+                  event.preventDefault();
+
+
+                  updateRail(
+                    activeIndex - 1,
+                    {
+                      focusTab: true
+                    }
+                  );
+
+
+                  break;
+
+
+                case "ArrowRight":
+
+                  event.preventDefault();
+
+
+                  updateRail(
+                    activeIndex + 1,
+                    {
+                      focusTab: true
+                    }
+                  );
+
+
+                  break;
+
+
+                case "Home":
+
+                  event.preventDefault();
+
+
+                  updateRail(
+                    0,
+                    {
+                      focusTab: true
+                    }
+                  );
+
+
+                  break;
+
+
+                case "End":
+
+                  event.preventDefault();
+
+
+                  updateRail(
+                    items.length - 1,
+                    {
+                      focusTab: true
+                    }
+                  );
+
+
+                  break;
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+
+
+      /* ---------------------------------------------------------
+         ARROWS
+         --------------------------------------------------------- */
+
+      previousButton
+        ?.addEventListener(
+          "click",
+          showPrevious
+        );
+
+
+      nextButton
+        ?.addEventListener(
+          "click",
+          showNext
+        );
+
+
+
+      /* ---------------------------------------------------------
+         TOUCH / SWIPE
+         --------------------------------------------------------- */
+
+      rail.addEventListener(
+        "touchstart",
+        (event) => {
+
+          const touch =
+            event.changedTouches[0];
+
+
+          if (!touch) {
+            return;
+          }
+
+
+          touchStartX =
+            touch.clientX;
+
+
+          touchStartY =
+            touch.clientY;
+
+
+          touchTracking =
+            true;
+
+        },
+        {
+          passive: true
+        }
+      );
+
+
+      rail.addEventListener(
+        "touchend",
+        (event) => {
+
+          if (
+            !touchTracking
+          ) {
+            return;
+          }
+
+
+          const touch =
+            event.changedTouches[0];
+
+
+          touchTracking =
+            false;
+
+
+          if (!touch) {
+            return;
+          }
+
+
+          const deltaX =
+            touch.clientX -
+            touchStartX;
+
+
+          const deltaY =
+            touch.clientY -
+            touchStartY;
+
+
+          const isHorizontalGesture =
+            Math.abs(
+              deltaX
+            ) >
+            Math.abs(
+              deltaY
+            ) * 1.25;
+
+
+          if (
+            !isHorizontalGesture ||
+            Math.abs(
+              deltaX
+            ) <
+            SWIPE_THRESHOLD
+          ) {
+            return;
+          }
+
+
+          if (
+            deltaX < 0
+          ) {
+
+            showNext();
+
+          }
+
+          else {
+
+            showPrevious();
+
+          }
+
+        },
+        {
+          passive: true
+        }
+      );
+
+    }
+  );
+
+})();
+
+/* =========================================================
+   CV MOBILE BACKGROUND ACCORDIONS
+   Keep education/languages open on desktop, collapsed on phones.
+   ========================================================= */
+
+(() => {
+  const groups = [...document.querySelectorAll('.cv-background-group')];
+  if (!groups.length) return;
+
+  const mq = window.matchMedia('(max-width: 700px)');
+  let lastMobile = null;
+
+  const syncCvBackgroundGroups = () => {
+    const isMobile = mq.matches;
+    if (isMobile === lastMobile) return;
+    lastMobile = isMobile;
+
+    groups.forEach(group => {
+      if (isMobile) {
+        group.removeAttribute('open');
+      } else {
+        group.setAttribute('open', '');
+      }
+    });
+  };
+
+  syncCvBackgroundGroups();
+  mq.addEventListener?.('change', syncCvBackgroundGroups);
+})();
+
+/* =========================================================
+   MOBILE ACCESSIBILITY WORKSTREAM DISCLOSURE
+   Open by default on desktop, collapsed by default on phones.
+   ========================================================= */
+(() => {
+  const workstreams = document.querySelectorAll('[data-a11y-workstream]');
+  if (!workstreams.length) return;
+
+  const mobileQuery = window.matchMedia('(max-width: 700px)');
+
+  const syncWorkstreams = (query) => {
+    workstreams.forEach((workstream) => {
+      workstream.open = !query.matches;
+    });
+  };
+
+  syncWorkstreams(mobileQuery);
+  mobileQuery.addEventListener?.('change', syncWorkstreams);
 })();
