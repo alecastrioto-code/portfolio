@@ -328,23 +328,15 @@
       </div>
 
 
-      <div class="ss-starting-signal">
-
-        <strong class="ss-textual-metric">
-          Six-figure
-        </strong>
-
-        <div>
-          <span>
-            annual order-status, delayed and missing-order cases
-          </span>
-
-          <p>
-            Enough volume to justify moving predictable investigation
-            out of assisted support.
-          </p>
+      <div class="ss-volume-card" aria-label="Scale signal">
+        <div class="ss-volume-card-metric">
+          <span>Scale signal</span>
+          <strong>Six-figure</strong>
         </div>
-
+        <div class="ss-volume-card-copy">
+          <strong>Annual order-status, delayed and missing-order cases</strong>
+          <p>Enough volume to justify moving predictable investigation out of assisted support.</p>
+        </div>
       </div>
 
 
@@ -487,21 +479,25 @@
 
     
 <section class="case-section lead-decision" aria-labelledby="self-service-direction-decision">
-  <p class="eyebrow">The architectural decision</p>
-  <div class="lead-decision-heading">
-    <h2 id="self-service-direction-decision">Make the resolution logic reusable before making every channel clever.</h2>
-    <p>Different interfaces still needed to resolve the same customer problem consistently.</p>
+  <div class="lead-decision-card">
+    <div class="lead-decision-heading">
+      <div>
+        <p class="eyebrow">The architectural decision</p>
+        <h2 id="self-service-direction-decision">Make the resolution logic reusable before making every channel clever.</h2>
+      </div>
+      <p>Different interfaces still needed to resolve the same customer problem consistently.</p>
+    </div>
+    <div class="lead-decision-grid">
+      <article><span>Initial assumption</span><strong>Each channel could own and evolve its own self-service flow.</strong></article>
+      <article><span>What we learned</span><strong>The same issue depended on shared context, policy, eligibility and recovery logic across web, AI and voice.</strong></article>
+      <article><span>What I advocated for</span><strong>Design the shared resolution model first, then translate it for each channel.</strong></article>
+      <article><span>Impact on the product</span><strong>Disconnected flows became reusable service logic for multiple channels and future automation.</strong></article>
+    </div>
+    <aside class="lead-leverage">
+      <span>Beyond the project</span>
+      <p>I onboarded another designer into the resolution model and established recurring collective critiques around the shared logic.</p>
+    </aside>
   </div>
-  <div class="lead-decision-grid">
-    <article><span>Initial assumption</span><strong>Each channel could own and evolve its own self-service flow.</strong></article>
-    <article><span>What we learned</span><strong>The same issue depended on shared context, state, policy, eligibility and recovery logic regardless of whether it started on web, AI or voice.</strong></article>
-    <article><span>What I advocated for</span><strong>Design the shared resolution model first, then translate the interaction model for each channel.</strong></article>
-    <article><span>Impact on the product</span><strong>The work moved from disconnected flows toward reusable service logic that could support multiple channels and future automation.</strong></article>
-  </div>
-  <aside class="lead-leverage">
-    <span>Beyond the project</span>
-    <p>I onboarded another designer into the resolution model and established recurring collective critiques so the logic could keep evolving as shared team knowledge rather than a single-designer artefact.</p>
-  </aside>
 </section>
 
 <section
@@ -918,7 +914,7 @@
   aria-label="Attach a file"
 >
   <img
-    src="../assets/self-service/clip-icon.svg"
+    src="../assets/self-service/clip-Icon.svg"
     alt=""
     aria-hidden="true"
   >

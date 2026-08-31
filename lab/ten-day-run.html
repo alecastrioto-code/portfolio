@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ten Day Run — a personal mobile web app built and iterated through AI-assisted development.">
+  <title>Ten Day Run — Ale Castrioto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Newsreader:ital,opsz,wght@1,6..72,400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="case-page lab-case-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <main id="main-content">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="site-brand" href="../index.html">Ale Castrioto</a>
+      <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-menu" aria-label="Open navigation">
+        <span class="site-nav-toggle-label">MENU</span>
+        <span class="site-nav-toggle-icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+      <div class="site-nav-links" id="site-nav-menu">
+        <a href="../index.html#work">WORK</a>
+        <a href="../archive.html" aria-current="page">LAB &amp; MORE WORK</a>
+        <a href="../cv.html">CV</a>
+        <a href="../about.html">ABOUT / CONTACT</a>
+      </div>
+    </nav>
+
+    <header class="lab-case-hero">
+      <p class="project-number">LAB — AI-ASSISTED BUILD · PWA · PRODUCT PROTOTYPING</p>
+      <div class="lab-case-hero-grid">
+        <div>
+          <h1>Building a personal app far enough for the <span class="editorial-accent">failures to become useful.</span></h1>
+          <p class="intro">I wanted a lightweight mobile tool I would genuinely use for a ten-day consistency run. Instead of stopping at a prototype, I built the working web app, installed it on my phone and let real usage expose everything the happy path had missed.</p>
+        </div>
+        <div class="lab-phone-demo" aria-label="Abstract preview of the Ten Day Run mobile app">
+          <div class="lab-phone-top"><span>DAY 04 / 10</span><strong>78%</strong></div>
+          <div class="lab-phone-card"><span>FOOD RHYTHM</span><strong>3 / 4 moments</strong><i></i></div>
+          <div class="lab-phone-card"><span>PROTEIN</span><strong>92 g</strong><i></i></div>
+          <div class="lab-phone-row"><span>Water</span><span>Movement</span><span>Recovery</span></div>
+        </div>
+      </div>
+      <div class="case-proof" aria-label="Project facts and ownership">
+        <div class="case-proof-tags" aria-label="Project facts">
+          <span>2026</span><span>Personal · working MVP</span><span>Product · UX · AI-assisted development</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="case-section lab-story-section">
+      <p class="eyebrow">01 — Problem</p>
+      <h2>A personal tool only works if logging is easier than abandoning it.</h2>
+      <p class="chapter-intro">The product needed to support a short behavioural-consistency run without turning into another dashboard I would ignore: fast daily scoring, meal-level food logging, useful nutrition totals, recovery tracking and an interface that felt good on a phone.</p>
+    </section>
+
+    <section class="case-section lab-story-section">
+      <p class="eyebrow">02 — What I built</p>
+      <h2>Enough product to make the edge cases real.</h2>
+      <div class="lab-build-grid">
+        <article><span>Daily system</span><strong>Today view, scoring, hydration, movement, recovery and editable schedule.</strong></article>
+        <article><span>Food layer</span><strong>Meal logging, calories, protein, fibre, manual add, barcode lookup and recent-food memory.</strong></article>
+        <article><span>Progress</span><strong>Ten-day overview, trends, measurements and reward logic.</strong></article>
+        <article><span>Local-first</span><strong>Local persistence, import/export backup and installable Home Screen / PWA behaviour.</strong></article>
+      </div>
+    </section>
+
+    <section class="case-section lab-story-section lab-broke-section">
+      <p class="eyebrow">03 — What broke</p>
+      <h2>The useful part started after it “worked”.</h2>
+      <div class="lab-break-list">
+        <article><span>Barcode</span><p>The camera-based scanner failed on the real device even though manual food entry worked.</p></article>
+        <article><span>Search</span><p>The first search implementation returned inconsistent results and was not reliable enough to feel like a real product feature.</p></article>
+        <article><span>Memory</span><p>Recent-food memory and persistence did not behave consistently at first, breaking the speed advantage the feature was meant to create.</p></article>
+        <article><span>PWA + data</span><p>Installing the site to the iPhone Home Screen exposed a persistence problem and wiped the first run's data — a much more useful lesson than a clean prototype demo.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section lab-story-section lab-learning-section">
+      <p class="eyebrow">04 — What I learned</p>
+      <h2>AI-assisted development made building faster. It did not remove product or systems judgement.</h2>
+      <p class="chapter-intro">The project pushed me across design, product and implementation boundaries. Browser APIs behaved differently on-device, local-first state needed explicit recovery and backup thinking, and every “smart” feature still needed a graceful fallback. The most valuable loop became: build → use → break → understand → simplify.</p>
+      <div class="checkout-takeaway lab-takeaway">
+        <span>The point</span>
+        <p>I did not build this to prove I am a software engineer. I built it to get closer to the real constraints that appear after design leaves the canvas.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lab-case-return">
+    <div class="lab-case-return-inner">
+      <a href="../archive.html">← Back to Lab &amp; More Work</a>
+      <a href="../index.html#work">Selected Work →</a>
+    </div>
+  </footer>
+  <script src="../script.js"></script>
+</body>
+</html>
