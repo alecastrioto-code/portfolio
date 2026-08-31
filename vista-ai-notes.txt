@@ -77,7 +77,7 @@ Increasing AI engagement and resolution was valuable, but customers also needed 
 We learned:
 On pages where customers were explicitly offered a choice between Vista Assistant and a human specialist, preference was almost evenly split.
 
-Across the latest analysis, approximately 52% chose Vista Assistant and 48% chose a specialist directly.
+Across the latest analysis, preference was roughly evenly split between Vista Assistant and a specialist.
 
 However, among customers who initially chose Vista Assistant, a significant proportion eventually handed over to a human.
 
@@ -229,8 +229,7 @@ ESCAPE-HATCH DATA
 
 When customers were given an explicit choice, preference was approximately:
 
-52% Vista Assistant
-48% human specialist
+Preference was roughly evenly split between Vista Assistant and human support.
 
 This challenged simplistic assumptions that customers overwhelmingly preferred one channel.
 
@@ -261,8 +260,7 @@ Examples include:
 
 - Vista Assistant expanded beyond the original Help Center experience into additional site areas
 - Studio expansion
-- 24/7 availability experiment
-- French and German UAT and expansion
+- expanded availability experimentation
 - improved handover experiences
 - handover trigger tracking
 - missing / not-received order flows

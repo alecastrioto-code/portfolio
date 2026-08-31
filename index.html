@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ale Castrioto — Product Designer</title>
+  <title>Ale Castrioto — Lead UX / Product Designer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,10 +19,12 @@
 </head>
 <body class="home-page">
 
-  <main>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <main id="main-content">
     <!-- MAIN NAVIGATION -->
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Primary navigation">
 
   <a class="site-brand" href="index.html">
     Ale Castrioto
@@ -80,7 +82,7 @@
   <div class="home-hero-copy">
 
     <p class="hero-kicker">
-      Lead Product Designer · AI · Complex Systems
+      Lead UX / Product Designer · AI · Complex Systems
     </p>
 
 
@@ -176,12 +178,10 @@
       across AI, customer context and human specialists.
     </p>
 
-    <div class="project-tags">
-      <span class="project-tag">Vista Assistant</span>
-      <span class="project-tag">Product Strategy</span>
-      <span class="project-tag">UX</span>
-      <span class="project-tag">Research</span>
-      <span class="project-tag">Experimentation</span>
+    <div class="project-tags project-proof-tags" aria-label="Project proof points">
+      <span class="project-tag">Shipped + evolving</span>
+      <span class="project-tag">AI + human service</span>
+      <span class="project-tag">Experimented</span>
     </div>
 
   </a>
@@ -225,11 +225,10 @@
       alignment before committing to implementation.
     </p>
 
-    <div class="project-tags">
-      <span class="project-tag">Vision Prototypes</span>
-      <span class="project-tag">Product Strategy</span>
-      <span class="project-tag">Prototyping</span>
-      <span class="project-tag">AI</span>
+    <div class="project-tags project-proof-tags" aria-label="Project proof points">
+      <span class="project-tag">Prototype + exploration</span>
+      <span class="project-tag">Interaction craft</span>
+      <span class="project-tag">Strategy → requirements</span>
     </div>
 
   </a>
@@ -273,11 +272,10 @@
       shared business logic into different interaction models.
     </p>
 
-    <div class="project-tags">
-      <span class="project-tag">Self-Service</span>
-      <span class="project-tag">Conversational UX</span>
-      <span class="project-tag">>Web</span>
-      <span class="project-tag">Service Design</span>
+    <div class="project-tags project-proof-tags" aria-label="Project proof points">
+      <span class="project-tag">4 service channels</span>
+      <span class="project-tag">Automation + service logic</span>
+      <span class="project-tag">Shipped + evolving</span>
     </div>
 
   </a>
@@ -322,11 +320,57 @@
       systems used by human specialists.
     </p>
 
-    <div class="project-tags">
-      <span class="project-tag">Salesforce</span>
-      <span class="project-tag">Specialist Experience</span>
-      <span class="project-tag">Service Design</span>
-      <span class="project-tag">Systems</span>
+    <div class="project-tags project-proof-tags" aria-label="Project proof points">
+      <span class="project-tag">3 specialist workstreams</span>
+      <span class="project-tag">AI + human workflow</span>
+      <span class="project-tag">System design</span>
+    </div>
+
+  </a>
+
+</article>
+
+
+<!-- PROJECT 05 -->
+
+<article
+  class="project"
+  style="--project-accent: #8b5e48;"
+>
+
+  <a
+    class="project-link"
+    href="projects/checkout-optimisation.html"
+  >
+
+    <div class="project-number">
+      05 — ECOMMERCE + CRO
+    </div>
+
+    <div class="project-title-row">
+
+      <span
+        class="project-dot"
+        aria-hidden="true"
+      ></span>
+
+      <h3>
+        Turning checkout friction into
+        a measurable, scalable product direction
+      </h3>
+
+    </div>
+
+    <p>
+      Combining behavioural analytics and rapid qualitative research
+      to prioritise checkout fixes, improve mobile usability and shape
+      reusable patterns that could scale across brands.
+    </p>
+
+    <div class="project-tags project-proof-tags" aria-label="Project proof points">
+      <span class="project-tag">Shipped</span>
+      <span class="project-tag">CRO + behavioural evidence</span>
+      <span class="project-tag">Double-digit uplift</span>
     </div>
 
   </a>
@@ -411,62 +455,13 @@
           type="button"
           role="tab"
           aria-selected="true"
-          aria-label="Show Checkout optimisation"
-          data-project-select
-        >
-          <span class="project-rail-image">
-            <img
-              src="assets/archive/checkout-optimisation.png"
-              alt=""
-              loading="lazy"
-            >
-          </span>
-
-          <span class="project-rail-sliver-title" aria-hidden="true">
-            Checkout
-          </span>
-        </button>
-
-        <div class="project-rail-info">
-
-          <div class="project-rail-heading">
-            <span class="project-rail-kicker">SUNGLASS HUT · 2022</span>
-            <h3>Checkout optimisation</h3>
-          </div>
-
-          <div class="project-rail-summary">
-            <span>BEHAVIOURAL RESEARCH · ECOMMERCE</span>
-            <a href="archive/checkout-optimisation.html">
-              View project →
-            </a>
-          </div>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- 02 -->
-
-      <article
-        class="project-rail-item"
-        data-project-item
-        data-project-index="1"
-      >
-
-        <button
-          class="project-rail-select"
-          type="button"
-          role="tab"
-          aria-selected="false"
           aria-label="Show Homepage behavioural analysis"
           data-project-select
         >
           <span class="project-rail-image">
             <img
               src="assets/archive/homepage-behavioural-analysis.png"
-              alt=""
+              alt="" aria-hidden="true"
               loading="lazy"
             >
           </span>
@@ -496,12 +491,12 @@
 
 
 
-      <!-- 03 -->
+      <!-- 02 -->
 
       <article
         class="project-rail-item"
         data-project-item
-        data-project-index="2"
+        data-project-index="1"
       >
 
         <button
@@ -515,7 +510,7 @@
           <span class="project-rail-image">
             <img
               src="assets/archive/my-account-redesign.png"
-              alt=""
+              alt="" aria-hidden="true"
               loading="lazy"
             >
           </span>
@@ -545,12 +540,12 @@
 
 
 
-      <!-- 04 -->
+      <!-- 03 -->
 
       <article
         class="project-rail-item"
         data-project-item
-        data-project-index="3"
+        data-project-index="2"
       >
 
         <button
@@ -564,7 +559,7 @@
           <span class="project-rail-image">
             <img
               src="assets/archive/lavazza-new-humanity.png"
-              alt=""
+              alt="" aria-hidden="true"
               loading="lazy"
             >
           </span>
@@ -594,12 +589,12 @@
 
 
 
-      <!-- 05 -->
+      <!-- 04 -->
 
       <article
         class="project-rail-item"
         data-project-item
-        data-project-index="4"
+        data-project-index="3"
       >
 
         <button
@@ -613,7 +608,7 @@
           <span class="project-rail-image">
             <img
               src="assets/archive/help-center-redesign.png"
-              alt=""
+              alt="" aria-hidden="true"
               loading="lazy"
             >
           </span>
@@ -643,12 +638,12 @@
 
 
 
-      <!-- 06 -->
+      <!-- 05 -->
 
       <article
         class="project-rail-item"
         data-project-item
-        data-project-index="5"
+        data-project-index="4"
       >
 
         <button
@@ -662,7 +657,7 @@
           <span class="project-rail-image">
             <img
               src="assets/archive/b2b-lead-generation.png"
-              alt=""
+              alt="" aria-hidden="true"
               loading="lazy"
             >
           </span>
@@ -698,7 +693,7 @@
 
       <span class="project-rail-counter" aria-live="polite">
         <strong data-project-current>01</strong>
-        <span>/ 06</span>
+        <span>/ 05</span>
       </span>
 
 

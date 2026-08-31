@@ -42,14 +42,16 @@
 
 <body class="case-page support-systems-page theme-support-systems">
 
-  <main>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <main id="main-content">
 
 
     <!-- ======================================================
          NAVIGATION
          ====================================================== -->
 
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Primary navigation">
 
       <a
         class="site-brand"
@@ -228,29 +230,27 @@
 
       <!-- META -->
 
-      <div class="case-meta">
+      <div class="case-proof" aria-label="Project facts and ownership">
 
-        <div>
-          <span>Role</span>
-          Lead UX Designer
-        </div>
+  <div class="case-proof-tags" aria-label="Project facts">
+    <span>2025–2026</span>
+    <span>MVP + evolving</span>
+    <span>Lead UX / Product Designer</span>
+  </div>
 
-        <div>
-          <span>Focus</span>
-          Specialist experience
-        </div>
+  <details class="case-proof-details">
+    <summary>
+      My role + Scope + collaborators
+      <span aria-hidden="true">+</span>
+    </summary>
+    <div>
+      <p><strong>My ownership</strong> Led specialist-experience design across handover, AI-assisted replies and after-contact work, reducing operational friction while keeping high-judgement work with specialists.</p>
+      <p><strong>Focus</strong> · Specialist experience · AI-assisted workflow · operations · service design</p>
+      <p><strong>Partnered with</strong> · Product · Engineering · CARE Ops · support specialists</p>
+    </div>
+  </details>
 
-        <div>
-          <span>Scope</span>
-          AI + operations + workflow design
-        </div>
-
-        <div>
-          <span>Workstreams</span>
-          Handover · Replies · ACW
-        </div>
-
-      </div>
+</div>
 
     </header>
 
@@ -818,10 +818,9 @@
 
           <img
             src="../assets/system/handover-screen.png"
-            alt="handover screen seen by agent"
+            alt="Handover screen seen by a specialist"
           >
-
-
+          <figcaption class="synthetic-data-note">Prototype shown with synthetic customer, case and order data.</figcaption>
 
       </figure>
 
@@ -1043,8 +1042,9 @@
 
           <img
             src="../assets/system/reply-recommendation-ui.png"
-            alt="handover screen seen by agent"
+            alt="Reply recommendation interface for a specialist"
           >
+          <figcaption class="synthetic-data-note">Concept interface with synthetic case data and example support guidance.</figcaption>
 
       </figure>
 
@@ -1351,8 +1351,9 @@
 
           <img
             src="../assets/system/acw.png"
-            alt="automated summary usertesting-screenshot"
+            alt="Automated after-contact summary interface"
           >
+          <figcaption class="synthetic-data-note">Prototype shown with synthetic customer, case and order data.</figcaption>
 
       </figure>
 
@@ -1661,15 +1662,15 @@
 
       <a
         class="project-pagination-item next-project"
-        href="../archive.html"
+        href="checkout-optimisation.html"
       >
 
         <span>
-          NEXT
+          NEXT CASE
         </span>
 
         <strong>
-          Earlier work
+          Checkout optimisation
         </strong>
 
         <div aria-hidden="true">

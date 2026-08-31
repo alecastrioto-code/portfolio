@@ -52,15 +52,17 @@
 
 <body class="case-page self-service-page theme-self-service">
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <main>
+
+  <main id="main-content">
 
 
     <!-- ======================================================
          NAVIGATION
          ====================================================== -->
 
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Primary navigation">
 
   <a class="site-brand" href="../index.html">
     Ale Castrioto
@@ -139,31 +141,6 @@
     </p>
 
   </div>
-
-
-<div class="case-meta">
-
-  <div>
-    <span>Role</span>
-    Lead UX Designer
-  </div>
-
-  <div>
-    <span>Focus</span>
-    Service design, flow design, business logic, research
-  </div>
-
-  <div>
-    <span>Product</span>
-    Cross-channel self-service
-  </div>
-
-  <div>
-    <span>Environment</span>
-    Ecommerce · AI · Automation · Customer Support
-  </div>
-
-</div>
 
 
   <!-- HERO SYSTEM VISUAL -->
@@ -257,7 +234,28 @@
 
     </header>
 
+<div class="case-proof" aria-label="Project facts and ownership">
 
+  <div class="case-proof-tags" aria-label="Project facts">
+    <span>2024–2026</span>
+    <span>Shipped + evolving</span>
+    <span>Lead UX / Product Designer</span>
+  </div>
+
+
+  <details class="case-proof-details">
+    <summary>
+      My role + Scope + collaborator
+      <span aria-hidden="true">+</span>
+    </summary>
+    <div>
+      <p><strong>My ownership</strong> Led service and interaction design for post-order self-service across web and conversational support, translating shared resolution logic into channel-specific experiences.</p>
+      <p><strong>Focus</strong> · Service design · flow design · business logic · research · automation boundaries</p>
+      <p><strong>Partnered with</strong> · Product · Engineering · CARE Process/Ops · platform teams · specialists</p>
+    </div>
+  </details>
+
+</div>
 
     <!-- ======================================================
          01 — THE STARTING POINT
@@ -334,8 +332,8 @@
 
       <div class="ss-starting-signal">
 
-        <strong>
-          217K
+        <strong class="ss-textual-metric">
+          Six-figure
         </strong>
 
         <div>
@@ -474,6 +472,7 @@
 
           <figcaption>
             Early web self-service MVP
+            <span class="synthetic-data-note">Screens use synthetic customer, order and transaction data.</span>
           </figcaption>
 
         </figure>
@@ -518,15 +517,58 @@
         </div>
 
 
-        <figure class="ss-logic-artifact">
+        <figure class="ss-system-map" data-system-map>
 
-          <img
-            src="../assets/self-service/flow-mindmap.png"
-            alt="Working map of late and missing order resolution logic"
-          >
+          <div class="ss-system-map-heading">
+            <span>SIMPLIFIED SYSTEM MAP</span>
+            <strong>Explore what the service needs to know.</strong>
+            <p>
+              Select a layer to see a generic example. Exact policy thresholds,
+              eligibility rules and operational logic are intentionally abstracted.
+            </p>
+          </div>
+
+          <div class="ss-system-map-flow" role="tablist" aria-label="Resolution system layers">
+            <button class="ss-system-map-step is-active" type="button" role="tab" aria-selected="true" data-map-step="context">
+              <span>01</span><strong>Context</strong><small>Who + what?</small>
+            </button>
+            <span class="ss-system-map-arrow" aria-hidden="true">→</span>
+            <button class="ss-system-map-step" type="button" role="tab" aria-selected="false" data-map-step="state">
+              <span>02</span><strong>State</strong><small>What happened?</small>
+            </button>
+            <span class="ss-system-map-arrow" aria-hidden="true">→</span>
+            <button class="ss-system-map-step" type="button" role="tab" aria-selected="false" data-map-step="policy">
+              <span>03</span><strong>Policy</strong><small>What is allowed?</small>
+            </button>
+            <span class="ss-system-map-arrow" aria-hidden="true">→</span>
+            <button class="ss-system-map-step" type="button" role="tab" aria-selected="false" data-map-step="resolution">
+              <span>04</span><strong>Resolution</strong><small>What next?</small>
+            </button>
+            <span class="ss-system-map-arrow" aria-hidden="true">→</span>
+            <button class="ss-system-map-step" type="button" role="tab" aria-selected="false" data-map-step="recovery">
+              <span>05</span><strong>Recovery</strong><small>What if unsure?</small>
+            </button>
+          </div>
+
+          <div class="ss-system-map-detail" aria-live="polite">
+            <div class="ss-system-map-detail-copy">
+              <span data-map-kicker>SELECTED LAYER · CONTEXT</span>
+              <h3 data-map-title>Identify the customer, order and item.</h3>
+              <p data-map-description>Resolution has to attach to the right customer and product before the service can safely reason about an outcome.</p>
+            </div>
+            <div class="ss-system-map-example">
+              <span>GENERIC EXAMPLE</span>
+              <strong data-map-example>Which product does “it” refer to?</strong>
+            </div>
+            <div class="ss-system-map-why">
+              <span>WHY IT MATTERS</span>
+              <p data-map-why>Conversation can be ambiguous; the underlying system cannot be.</p>
+            </div>
+          </div>
 
           <figcaption>
-            Working map of dependencies, corrections and recovery paths.
+            Portfolio-safe abstraction of a larger production decision model.
+            The structure is representative; proprietary thresholds and rules are not shown.
           </figcaption>
 
         </figure>
@@ -551,84 +593,6 @@
 
         </div>
 
-
-        <div
-          class="ss-information-model"
-          aria-label="Information required for resolution"
-        >
-
-          <div class="ss-info-entry">
-
-            <span>VARIABLE INPUT</span>
-
-            <strong>
-              Conversation
-            </strong>
-
-            <p>
-              Any order. Partial. Correctable.
-            </p>
-
-          </div>
-
-
-          <div class="ss-info-requirements">
-
-            <div class="ss-info-node">
-              <span>CUSTOMER</span>
-              <strong>Identity</strong>
-              <small>Authentication / account match</small>
-            </div>
-
-
-            <div class="ss-info-node">
-              <span>ORDER</span>
-              <strong>Transaction</strong>
-              <small>Relevant order</small>
-            </div>
-
-
-            <div class="ss-info-node is-critical is-wide">
-              <span>PRODUCT</span>
-              <strong>Item-level context</strong>
-              <small>
-                Resolution happens at product level,
-                not ambiguous order level.
-              </small>
-            </div>
-
-
-            <div class="ss-info-node">
-              <span>ISSUE</span>
-              <strong>Problem + evidence</strong>
-              <small>What happened and what supports it</small>
-            </div>
-
-
-            <div class="ss-info-node">
-              <span>CHECKS</span>
-              <strong>Policy + history</strong>
-              <small>Eligibility, previous actions, abuse checks</small>
-            </div>
-
-          </div>
-
-
-          <div class="ss-info-resolution">
-
-            <span>ENOUGH CONTEXT</span>
-
-            <strong>
-              Resolve
-            </strong>
-
-            <p>
-              Automate, route or hand off safely.
-            </p>
-
-          </div>
-
-        </div>
 
       </div>
 <!-- ======================================================
@@ -1631,17 +1595,17 @@
 
         <article>
 
-          <strong>
-            20%
+          <strong class="ss-textual-metric">
+            ≈1 in 5
           </strong>
 
           <span>
-            Vista Assistant automation rate
+            eligible interactions automated
           </span>
 
           <p>
-            Global contacts entering Vista Assistant
-            and resolving without human support.
+            A meaningful share of eligible interactions
+            resolved without human support.
           </p>
 
         </article>
@@ -1649,16 +1613,16 @@
 
         <article>
 
-          <strong>
-            6.6%
+          <strong class="ss-textual-metric">
+            Mid-single-digit
           </strong>
 
           <span>
-            estimated global CARE contact reduction
+            projected reduction in assisted contacts
           </span>
 
           <p>
-            Across live chat, phone and email.
+            Estimated across live chat, phone and email.
           </p>
 
         </article>
@@ -1754,6 +1718,7 @@
 
 
   <script src="../script.js"></script>
+  <script src="../self-service-map.js"></script>
   <script src="../self-service-prototype.js"></script>
 
 </body>
