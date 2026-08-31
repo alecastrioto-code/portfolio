@@ -95,9 +95,7 @@
     <a href="../index.html#work">
       WORK
     </a>
-        <a href="../archive.html">
-          ARCHIVE
-        </a>
+        <a href="../archive.html">LAB &amp; MORE WORK</a>
 
     <a href="../cv.html">
       CV
@@ -244,16 +242,16 @@
 
 
   <details class="case-proof-details">
-    <summary>
-      My role + Scope + collaborator
-      <span aria-hidden="true">+</span>
-    </summary>
-    <div>
-      <p><strong>My ownership</strong> Led service and interaction design for post-order self-service across web and conversational support, translating shared resolution logic into channel-specific experiences.</p>
-      <p><strong>Focus</strong> · Service design · flow design · business logic · research · automation boundaries</p>
-      <p><strong>Partnered with</strong> · Product · Engineering · CARE Process/Ops · platform teams · specialists</p>
-    </div>
-  </details>
+  <summary>
+    My role + influence + collaborators
+    <span aria-hidden="true">+</span>
+  </summary>
+  <div>
+    <p><strong>My ownership</strong> Led service and interaction design for post-order self-service across web and conversational support, translating shared resolution logic into channel-specific experiences.</p>
+    <p><strong>What I influenced</strong> · Resolution model · automation boundaries · cross-channel capability sequencing · service continuity</p>
+    <p><strong>Worked across</strong> · Product · Engineering · CARE Process/Ops · platform teams · specialists</p>
+  </div>
+</details>
 
 </div>
 
@@ -487,7 +485,26 @@
          03 — DESIGNING THE RESOLUTION LOGIC
          ====================================================== -->
 
-    <section
+    
+<section class="case-section lead-decision" aria-labelledby="self-service-direction-decision">
+  <p class="eyebrow">The architectural decision</p>
+  <div class="lead-decision-heading">
+    <h2 id="self-service-direction-decision">Make the resolution logic reusable before making every channel clever.</h2>
+    <p>Different interfaces still needed to resolve the same customer problem consistently.</p>
+  </div>
+  <div class="lead-decision-grid">
+    <article><span>Initial assumption</span><strong>Each channel could own and evolve its own self-service flow.</strong></article>
+    <article><span>What we learned</span><strong>The same issue depended on shared context, state, policy, eligibility and recovery logic regardless of whether it started on web, AI or voice.</strong></article>
+    <article><span>What I advocated for</span><strong>Design the shared resolution model first, then translate the interaction model for each channel.</strong></article>
+    <article><span>Impact on the product</span><strong>The work moved from disconnected flows toward reusable service logic that could support multiple channels and future automation.</strong></article>
+  </div>
+  <aside class="lead-leverage">
+    <span>Beyond the project</span>
+    <p>I onboarded another designer into the resolution model and established recurring collective critiques so the logic could keep evolving as shared team knowledge rather than a single-designer artefact.</p>
+  </aside>
+</section>
+
+<section
       class="case-section ss-story-section ss-resolution-logic"
       id="logic"
     >
@@ -1673,46 +1690,10 @@
 
 <footer class="case-footer">
 
-  <nav
-    class="project-pagination"
-    aria-label="Project navigation"
-  >
-
-    <a
-      class="project-pagination-item previous-project"
-      href="vision.html"
-    >
-      <span>
-        Previous project
-      </span>
-
-      <strong>
-        Product Vision
-      </strong>
-
-      <div>
-        ←
-      </div>
-    </a>
-
-    <a
-      class="project-pagination-item next-project"
-      href="support-systems.html"
-    >
-      <span>
-        Next project
-      </span>
-
-      <strong>
-        Customer + Specialist Systems
-      </strong>
-
-      <div>
-        →
-      </div>
-    </a>
-
-  </nav>
+  <nav class="project-pagination" aria-label="Project navigation">
+  <a class="project-pagination-item previous-project" href="checkout-optimisation.html"><span>Previous project</span><strong>Checkout optimisation</strong><div aria-hidden="true">←</div></a>
+  <a class="project-pagination-item next-project" href="vision.html"><span>Next project</span><strong>Product Vision</strong><div aria-hidden="true">→</div></a>
+</nav>
 
 </footer>
 
